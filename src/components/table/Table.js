@@ -20,7 +20,6 @@ import SelectionBox from './SelectionBox';
 import SelectionCheckboxAll from './SelectionCheckboxAll';
 import { flatArray, treeMap, flatFilter, normalizeColumns } from './util';
 import s from './style';
-import { LocaleReceiver } from "../locale-provider"
 
 function noop() {
 }
@@ -835,9 +834,7 @@ export default class Table extends React.Component {
       expandIconColumnIndex = restProps.expandIconColumnIndex;
     }
 
-    const table = (
-      <LocaleReceiver componentName="Table">
-        {loca => {
+    const table = loca =>  {
           return <BaseTable
             key="table"
             size={size}
@@ -851,9 +848,10 @@ export default class Table extends React.Component {
             expandIconAsCell={expandIconAsCell}
             emptyText={() => locale.emptyText || <span><Icon type="frown-o" />{loca.emptyText}</span>}
           />
-        }}
-      </LocaleReceiver>
-    );
+        };
+
+      // </LocaleReceiver>
+    
 
     // if there is no pagination or no data,
     // the height of loading should decrease by half of pagination

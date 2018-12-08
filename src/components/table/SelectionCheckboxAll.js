@@ -11,7 +11,6 @@ import Dropdown from '../dropdown';
 import Menu from '../menu';
 import Icon from '../icon';
 import classNames from 'classnames';
-import { LocaleReceiver } from "../locale-provider"
 
 export default class SelectionCheckboxAll extends React.Component {
   constructor(props) {
@@ -182,8 +181,6 @@ export default class SelectionCheckboxAll extends React.Component {
   }
 
   render() {
-    return <LocaleReceiver componentName="Table">
-      {this.renderMain}
-    </LocaleReceiver>
+    return this.renderMain
   }
 }

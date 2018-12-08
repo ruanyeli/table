@@ -5,7 +5,6 @@ import { ItemGroup } from '../menu';
 import cn from 'classnames';
 import Menu from '../menu';
 import scrollIntoView from 'dom-scroll-into-view';
-import { LocaleReceiver } from "../locale-provider";
 
 function toArray(children) {
   const ret = [];
@@ -276,9 +275,7 @@ export default class DropdownMenu extends Component {
   }
 
   render() {
-    return <LocaleReceiver componentName="Select">
-      {this.renderMain}
-    </LocaleReceiver>
+    return  this.renderMain
   }
 }
 

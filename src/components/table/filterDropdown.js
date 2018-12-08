@@ -14,7 +14,6 @@ import Icon from '../icon';
 import Checkbox from '../checkbox';
 import Radio from '../radio';
 import Menu, { SubMenu, MenuItem } from '../menu';
-import { LocaleReceiver } from "../locale-provider"
 
 const FilterDropdownMenuWrapper = props => (
   <div className={props.className} onClick={props.onClick}>
@@ -233,8 +232,7 @@ export default class FilterMenu extends React.Component {
   }
   
   render() {
-    return <LocaleReceiver componentName="Table">
-      {this.renderMain}
-    </LocaleReceiver>
+    return this.renderMain
+      
   }
 }

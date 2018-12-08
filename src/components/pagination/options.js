@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React, { Component } from 'react';
 import Select from '../select';
-import { LocaleReceiver } from "../locale-provider";
+// import { LocaleReceiver } from "../locale-provider";
 const Option = Select.Option;
 
 class Options extends Component {
@@ -21,9 +21,7 @@ class Options extends Component {
     )
   }
   render() {
-    return <LocaleReceiver componentName="Pagination">
-      {this.renderMain}
-    </LocaleReceiver>
+    return this.renderMain
   }
 }
 

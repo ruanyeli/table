@@ -7,7 +7,6 @@ import SelectTrigger from './selectTrigger';
 import { MenuItem, ItemGroup } from '../menu';
 import { toArray, preventDefaultEvent } from './util';
 import findIndex from 'lodash/findIndex';
-import { LocaleReceiver } from "../locale-provider";
 
 const prefixCls = s.selectPrefix;
 
@@ -761,8 +760,6 @@ export default class Select extends Component {
   }
 
   render() {
-    return <LocaleReceiver componentName="Select">
-      {this.renderMain}
-    </LocaleReceiver>
+    return this.renderMain
   }
 }

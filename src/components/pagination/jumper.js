@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { LocaleReceiver } from "../locale-provider";
+// import { LocaleReceiver } from "../locale-provider";
 
 class QuickJumper extends Component {
   static propTypes = {
@@ -53,9 +53,8 @@ class QuickJumper extends Component {
     )
   }
   render() {
-    return <LocaleReceiver componentName="Pagination">
-      {this.renderMain}
-    </LocaleReceiver>
+    return  this.renderMain
+     
   }
 }
 
