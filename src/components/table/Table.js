@@ -869,7 +869,7 @@ export default class Table extends React.Component {
           loading={loading}
           className={loading ? `${paginationPatchClass} ${prefixCls}-spin-holder` : ''}
         >
-          {table}
+          {table({ emptyText: "暂无数据" })}
           {this.renderPagination()}
         </Loading>
       </div>
