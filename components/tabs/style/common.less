@@ -1,0 +1,121 @@
+.@{tabs-prefix} {
+  overflow: hidden;
+  background: @tabs-background;
+  &-bar {
+    margin-bottom: 16px;
+    border-bottom: 1px solid @tabs-border-color;
+  }
+  &-ink-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    background-color: @tabs-line-ink-bar-color;
+    &-animated {
+      transition: transform @tabs-effect-duration @tabs-easing-in-out;
+    }
+  }
+  &-tab {
+    position: relative;
+    .close {
+      position: absolute;
+      top: 50%;
+      transform: translate(0, -50%);
+    }
+    &-btn {
+      position: absolute;
+      top: 0;
+      height: 100%;
+      cursor: pointer;
+      width: 0;
+      text-align: center;
+      opacity: 0;
+      &-icon {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        &:before {
+          font-family: 'tdicon';
+        }
+      }
+      &-disabled {
+        color: @tabs-btn-disabled-color;
+        cursor: not-allowed;
+      }
+    }
+    &-arrow-show {
+      width: @tabs-btn-base-width;
+      opacity: 1;
+    }
+    &-prev {
+      left: 0;
+      &-icon {
+        &:before {
+          content: @tdicon-return;
+        }
+      }
+    }
+    &-next {
+      right: 0;
+      &-icon {
+        &:before {
+          content: @tdicon-enter;
+        }
+      }
+    }
+  }
+  &-nav {
+    display: inline-block;
+    position: relative;
+    // height: 100%;
+    &-container {
+      position: relative;
+      margin-bottom: -1px;
+      &-scrolling {
+        padding: 0 @tabs-btn-base-width;
+      }
+    }
+    &-animated {
+      transition: transform @tabs-effect-duration @tabs-easing-in-out;
+    }
+    &-wrap {
+      white-space: nowrap;
+      overflow: hidden;
+      height: 100%;
+      .@{prefixCls}-tab {
+        display: inline-block;
+        height: 100%;
+        margin-right: @tabs-line-base-margin-right;
+        padding: @tabs-line-base-padding;
+        cursor: pointer;
+        font-size: @tabs-base-font-size;
+        &-disabled {
+          color: @tabs-disabled-color;
+          cursor: not-allowed;
+        }
+        &:last-child {
+          margin-right: 0;
+        }
+
+        &-active {
+          color: @tabs-active-color;
+        }
+      }
+    }
+  }
+  &:not(&-vertical) {
+    .@{prefixCls}-content {
+      display: -webkit-flex;
+      display: flex;
+      width: 100%;
+      &-animated {
+        transition: transform @tabs-effect-duration @tabs-easing-in-out;
+      }
+      .@{prefixCls}-tabpane {
+        width: 100%;
+        flex-shrink: 0;
+      }
+    }
+  }
+}

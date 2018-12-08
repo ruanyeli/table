@@ -1,0 +1,21 @@
+export default {
+  dateFormat: 'YYYY年M月D日',
+  yearFormat: 'YYYY年',
+  monthFormat: 'YYYY年MM月',
+  dayFormat: 'D日',
+  now: '此刻',
+  today: '今天',
+  yesterday: '昨天',
+  // nearlyThreeDays: '近三天',
+  // nearlySevenDays: '近七天',
+  // nearlyThirtyDays: '近三十天',
+  // nearlyNinetyDays: '近九十天',
+  startTimePlaceholder: '开始时间',
+  endTimePlaceholder: '结束时间',
+  month: '月',
+  year: '年',
+  currentMonth: '本月',
+  currentYear: '今年',
+  placeholder: '请选择',
+  momentLocale: 'zh-CN'
+}

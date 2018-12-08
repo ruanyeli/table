@@ -1,0 +1,93 @@
+.@{prefixCls} {
+  &-vertical {
+    .@{prefixCls}-ink-bar {
+      width: 2px;
+      top: 0;
+      bottom: auto;
+    }
+    .@{prefixCls}-content {
+      transform: none !important;
+    }
+    .@{prefixCls}-tab {
+      display: block;
+      margin-right: 0;
+      margin-bottom: @tabs-line-base-margin-bottom;
+      &:last-child {
+        margin-bottom: 0;
+      }
+      &-btn {
+        height: @tabs-btn-base-height;
+        width: 100%;
+      }
+      &-prev {
+        left: 0;
+        top: 0;
+        bottom: auto;
+        right: auto;
+        &-icon {
+          &:before {
+            content: @tdicon-packup;
+          }
+        }
+      }
+      &-next {
+        bottom: 0;
+        left: 0;
+        top: auto;
+        right: auto;
+        &-icon {
+          &:before {
+            content: @tdicon-unfold;
+          }
+        }
+      }
+    }
+    .@{prefixCls}-bar {
+      margin-bottom: 0;
+      border-bottom: none;
+      height: 100%;
+    }
+    .@{prefixCls}-nav {
+      &-container {
+        height: 100%;
+        margin-bottom: 0;
+        &-scrolling {
+          padding: @tabs-btn-base-height 0;
+        }
+      }
+      &-wrap {
+        height: 100%;
+      }
+    }
+    & > .@{prefixCls}-content:not(.@{prefixCls}-content-animated) {
+      .@{prefixCls}-tabpane-inactive {
+        display: none;
+      }
+    }
+    & > .@{prefixCls}-content.@{prefixCls}-content-animated {
+      .@{prefixCls}-tabpane-active {
+        transition: opacity @tabs-effect-duration @tabs-easing-in-out;
+      }
+      .@{prefixCls}-tabpane-inactive {
+        height: 0;
+        opacity: 0;
+      }
+    }
+  }
+  &-left {
+    .@{prefixCls}-ink-bar {
+      right: 0;
+      left: auto;
+    }
+    .@{prefixCls}-bar {
+      border-right: 1px solid @tabs-border-color;
+      float: left;
+      margin-right: 16px;
+    }
+    .@{prefixCls}-nav {
+      &-container {
+        margin-right: -1px;
+      }
+    }
+  }
+}

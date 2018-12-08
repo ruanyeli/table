@@ -1,0 +1,57 @@
+@import "../../style/themes/default.less";
+
+.@{commonTable-prefix} {
+	width:auto;
+	padding: 0 20px 25px 20px;
+	& em {
+		font-style: italic;
+	}
+	& ins {
+		text-decoration: underline;
+	}
+	& label {
+		font-weight: normal;
+	}
+	& .searchTop {
+		padding:35px 42px 0;
+		background: #fff;
+		margin-bottom: 15px;
+		& .searchTopDiv{
+			margin-bottom: 20px;
+			margin-right: 20px;
+			display: inline-block;
+			vertical-align: top;
+		}
+		& .titleSpan{
+			margin-right: 15px;
+			display: inline-block;
+		    line-height: @component-base-height;
+		    vertical-align: top;
+		}
+		&  button{
+			margin-right: 10px;
+		}
+	}
+	& .tableWrapper{
+		background: #fff;
+		margin-top:20px;
+		padding: 0 42px;
+		& .pageControl {
+			margin: 20px 50px 15px;
+			&:after {
+				height: 0;
+				content: "\200B";
+				clear: both;
+				line-height: 0;
+				display: block;
+			}
+			& > div {
+				float: right;
+			}
+		}
+	}
+}
+/*下载置灰*/
+.hasDownload,.hasExpired{
+	color:#ccc;
+}

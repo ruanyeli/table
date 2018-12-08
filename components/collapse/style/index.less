@@ -1,0 +1,74 @@
+
+@import "../../style/themes/default.less";
+
+@borderStyle: 1px solid @border-color-base;
+
+.@{collapse-prefix} {
+  background-color: @collapse-background;
+  border-radius: 3px;
+  border: @borderStyle;
+
+  &-anim-active {
+    transition: height .2s ease-out;
+  }
+
+  & > &-item {
+    border-top: @borderStyle;
+    &:first-child {
+      border-top: none;
+    }
+
+    > .@{collapse-prefix}-header {
+      height: 38px;
+      line-height: 38px;
+      text-indent: 16px;
+      color: @collapse-header-color;
+      cursor: pointer;
+      .arrow {
+        display: inline-block;
+        content: '\20';
+        // #arrow > .common();
+        // #arrow > .right(3px, 4px, #666);
+        vertical-align: middle;
+        margin-right: 8px;
+      }
+    }
+  }
+
+  & > &-item-disabled > .@{collapse-prefix}-header {
+    cursor: not-allowed;
+    color: @collapse-item-disabled-color;
+    background: @collapse-item-disabled-background;
+  }
+
+  &-content {
+    overflow: hidden;
+    color: @text-color;
+    padding: 0 16px;
+    background: @collapse-content-background;
+
+    & > &-box {
+      margin-top: 16px;
+      margin-bottom: 16px;
+    }
+
+    &-inactive {
+      display: none;
+    }
+  }
+
+  &-item:last-child {
+    > .@{collapse-prefix}-content {
+      border-radius: 0 0 3px 3px;
+    }
+  }
+
+  & > &-item-active {
+    > .@{collapse-prefix}-header {
+      border-bottom: 1px solid @border-color-base;
+      .arrow {
+        margin-right: 6px;
+      }
+    }
+  }
+}

@@ -1,0 +1,28 @@
+@import "../../style/themes/default.less";
+
+.@{steps-prefix} {
+  &-mini{
+    display: flex;
+    .@{steps-prefix} {
+      &-step{
+        margin-right: 30px;
+        &-main{
+          display: inline-block;
+          vertical-align: top;
+          margin-left: 10px;
+        }
+        &-title{
+          padding-top: 3px;
+        }
+        &-icon{
+          width: @icon-min-height + 4;
+          height: @icon-min-height + 4;
+          border-radius: @icon-min-height;
+          line-height: @icon-min-height;
+          margin-top: 3px;
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}

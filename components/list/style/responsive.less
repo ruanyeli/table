@@ -1,0 +1,42 @@
+@media screen and (max-width: @screen-md) {
+  .@{list-prefix} {
+    &-item {
+      &-action {
+        margin-left: 24px;
+      }
+    }
+  }
+
+  .@{list-prefix}-vertical {
+    .@{list-prefix}-item {
+      &-extra {
+        margin-left: 24px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: @screen-xs) {
+  .@{list-prefix} {
+    &-item {
+      flex-wrap: wrap;
+      &-action {
+        margin-left: 12px;
+      }
+    }
+  }
+
+  .@{list-prefix}-vertical {
+    .@{list-prefix}-item {
+      &-extra-wrap {
+        flex-wrap: wrap-reverse;
+      }
+      &-main {
+        min-width: 220px;
+      }
+      &-extra {
+        margin-left: 0;
+      }
+    }
+  }
+}
