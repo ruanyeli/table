@@ -1,0 +1,527 @@
+// @treePrefixCls: rc-tree-select-tree;
+// @treePrefixCls: td-select-tree;
+@treePrefixCls: td-tree-select-tree;
+.@{treePrefixCls} {
+  box-sizing: border-box;
+  padding: 5px;
+  margin: 0;
+  li{
+    list-style: none;
+    &.filter-node {
+      .@{treePrefixCls}-title {
+        // color: #f04134 !important;
+        color: rgba(0, 0, 0, 0.75);
+        font-weight: bold !important;
+      }
+    }
+    ul {
+      padding-left: @tree-switcher-width / 3 * 2;
+    }
+    &.drag-over > .@{treePrefixCls}-title {
+      background-color: @tree-drag-color;
+    }
+    &.drag-over-gap-top > .@{treePrefixCls}-title, &.drag-over-gap-bottom > .@{treePrefixCls}-title  {
+      position: relative;
+      &:after {
+        content: '';
+        width: 100%;
+        height: 2px;
+        position: absolute;
+        left: 0;
+        background-color: @tree-drag-color;
+      }
+    }
+    &.drag-over-gap-top > .@{treePrefixCls}-title {
+      &:after {
+        top: 0;
+      }
+    }
+    &.drag-over-gap-bottom > .@{treePrefixCls}-title {
+      &:after {
+        bottom: 0;
+      }
+    }
+  }
+  &-line {
+    & > li:not(:last-of-type) {
+      position: relative;
+      &:after {
+        content: '';
+        height:100%;
+        width: 1px;
+        overflow: hidden;
+        background-color: @tree-line-color;
+        left: @tree-switcher-width / 2;
+        top: 20px;
+        position: absolute;
+      }
+    }
+    & > li {
+      ul li:not(:last-of-type) {
+        position: relative;
+        &:after {
+          content: '';
+          height:100%;
+          width: 1px;
+          overflow: hidden;
+          background-color: @tree-line-color;
+          left: @tree-switcher-width / 2;
+          top: 20px;
+          position: absolute;
+        }
+      }
+    }
+  }
+  &-switcher {
+    width: @tree-switcher-width;
+    height: @tree-switcher-height;
+    display: inline-block;
+    vertical-align: middle;
+    text-align: center;
+    &_open, &_close {
+      display: inline-block;
+      width: @tree-switcher-width;
+      height: @tree-switcher-height;
+      text-align: center;
+      vertical-align: middle;
+      cursor: pointer;
+      &:after {
+        font-family: 'tdicon';
+        font-size: @tree-icon-size;
+        color: @tree-switcher-color;
+      }
+      &.@{treePrefixCls}-switcher-disabled{
+        &:after {
+          color: @disabled-color;
+        }
+      }
+    }
+    &_open {
+      &:after {
+        content: @tdicon-triangle-down;
+      }
+    }
+    &_close {
+      &:after {
+        content: @tdicon-triangle-right;
+      }
+    }
+  
+    &-line {
+      &-root {
+        &-close, &-open {
+          display: inline-block;
+          width: @tree-switcher-width;
+          height: @tree-switcher-height;
+          text-align: center;
+          vertical-align: middle;
+          cursor: pointer;
+          &:after {
+            font-family: 'tdicon';
+            font-size: @tree-icon-size;
+            color: @tree-line-color;
+            background-color: #fff;
+            position: relative;
+            top: 3px;
+          }
+        }
+        &-close {
+          &:after {
+            content: @tdicon-plus-square-o;
+          }
+        }
+        &-open {
+          &:after {
+            content: @tdicon-minus-square-o;
+          }
+        }
+      }
+      &-child {
+        vertical-align: middle;
+        &:after {
+          font-family: 'tdicon';
+          background-color: #fff;
+          content: @tdicon-log;
+          font-size: @tree-icon-size;
+          color: @tree-line-color;
+          position: relative;
+          top: 3px;
+        }
+      }
+    }
+  }
+  &-checkbox {
+    display: inline-block;
+    width: @tree-checkbox-width;
+    height: @tree-checkbox-height;
+    cursor: pointer;
+    border: 1px solid @tree-line-color;
+    box-sizing: border-box;
+    border-radius: 2px;
+    background-color: #fff;
+    position: relative;
+    vertical-align: middle;
+    &:hover {
+      border-color: @tree-checkbox-color;
+    }
+    &-checked,&-indeterminate {
+      background-color: @tree-checkbox-color;
+      border-color: @tree-checkbox-color;
+      &:after {
+        content: '';
+        border-color: #fff;
+        border-style: solid;
+        overflow: hidden;
+        position: absolute;
+        transition: all .1s;
+      }
+    }
+    &-checked {
+      &:after {
+        width: 5px;
+        height: 8px;
+        border-width:0 2px 2px 0;
+        transform: rotate(45deg);
+        left: 4px;
+        top: 1px;
+        box-sizing: border-box;
+      }
+    }
+    &-indeterminate {
+      &:after {
+        width: 8px;
+        height: 0;
+        border-width: 2px 0 0;
+        left: 50%;
+        margin-left: -4px;
+        top: 50%;
+        margin-top: -1px;
+      }
+    }
+    &-disabled {
+      cursor: not-allowed;
+      background-color: @tree-checkbox-disabled-bg;
+      border-color: @tree-checkbox-disabled-color;
+      &:hover {
+        border-color: @tree-checkbox-disabled-color;
+      }
+      &:after {
+        border-color: @tree-checkbox-disabled-color;
+      }
+    }
+  }
+  &-treenode-disabled {
+    & .@{treePrefixCls}-title {
+      color: @disabled-color;
+      cursor: not-allowed;
+    }
+    &:hover .@{treePrefixCls}-node-content-wrapper {
+      background-color: inherit;
+    }
+  }
+  &-icon {
+    &-loading {
+      .loading {
+        width: @tree-load-width;
+        height: @tree-load-height;
+        overflow: hidden;
+        border: 1px solid @tree-load-color;
+        border-right: none;
+        border-radius: 50%;
+        display: inline-block;
+        animation:circle 1s infinite both;
+      }
+    }
+  }
+
+  &-node-content-wrapper {
+    display: inline-block;
+    padding: 3px 5px;
+    border-radius: 2px;
+    margin: 0;
+    cursor: pointer;
+    text-decoration: none;
+    color: @text-color;
+    transition: all .3s;
+    width: ~"calc(100% - 24px)";
+    &:hover {
+      // background-color: @item-hover-bg;
+      // background-color: @select-item-hover-color;
+      background-color: @tree-hover-bgColor;;
+    }
+  }
+
+  &-node-selected {
+    background-color: @primary-2;
+  }
+  &-title {
+    display: inline-block;
+    padding: 0 5px;
+    vertical-align: middle;
+    line-height: @tree-switcher-height;
+    height: @tree-switcher-height;
+    cursor: pointer;
+    max-width: calc(~'100% - 20px - @{tree-switcher-width}');
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-break: break-all;
+    box-sizing: border-box;
+    // &:hover {
+    //   background-color: @tree-hover-bgColor;
+    // }
+    &.selected {
+      background-color: @tree-hover-bgColor;
+    }
+    &.draggable {
+      width: calc(~'100% - 15px - @{tree-switcher-width}');
+    }
+  }
+  &-child {
+    padding-left: @tree-switcher-width;
+  }
+  span {
+    &.@{treePrefixCls}-checkbox {
+      margin: 0 4px 0 0;
+      + .@{treePrefixCls}-node-content-wrapper {
+        width: ~"calc(100% - 46px)";
+      }
+    }
+    &.@{treePrefixCls}-switcher,
+    &.@{treePrefixCls}-iconEle {
+      margin: 0;
+      width: 24px;
+      height: 24px;
+      line-height: 22px;
+      display: inline-block;
+      vertical-align: middle;
+      border: 0 none;
+      cursor: pointer;
+      outline: none;
+      text-align: center;
+    }
+    &.@{treePrefixCls}-icon_loading {
+      .@{treePrefixCls}-switcher-loading-icon {
+        display: inline-block;
+        position: absolute;
+        left: 0;
+        color: @primary-color;
+        transform: none;
+        font-size: 14px;
+        svg {
+          position: absolute;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          margin: auto;
+        }
+      }
+    }
+    &.@{treePrefixCls}-switcher {
+      position: relative;
+      &.@{treePrefixCls}-switcher-noop {
+        cursor: auto;
+      }
+      &.@{treePrefixCls}-switcher_open {
+        // .antTreeSwitcherIcon();
+      }
+      &.@{treePrefixCls}-switcher_close {
+        // .antTreeSwitcherIcon();
+        .@{treePrefixCls}-switcher-icon {
+          svg {
+            transform: rotate(-90deg);
+          }
+        }
+      }
+
+      &.@{treePrefixCls}-switcher_open,
+        &.@{treePrefixCls}-switcher_close {
+          .@{treePrefixCls}-switcher-loading-icon {
+            display: inline-block;
+            position: absolute;
+            left: 0;
+            width: 24px;
+            height: 24px;
+            color: @primary-color;
+            transform: none;
+            font-size: 14px;
+            svg {
+              position: absolute;
+              top: 0;
+              right: 0;
+              bottom: 0;
+              left: 0;
+              margin: auto;
+            }
+          }
+        }
+    }
+  }
+}
+
+@keyframes circle {
+  0% {transform: rotate(0deg)}
+  100% {transform: rotate(360deg)}
+}
+// .@{treePrefixCls} {
+//   margin: 0;
+//   padding: 5px;
+//   li {
+//     padding: 0;
+//     margin: 0;
+//     list-style: none;
+//     white-space: nowrap;
+//     outline: 0;
+//     a[draggable],
+//     a[draggable="true"] {
+//       color: #333;
+//       -moz-user-select: none;
+//       -khtml-user-select: none;
+//       -webkit-user-select: none;
+//       user-select: none;
+//       /* Required to make elements draggable in old WebKit */
+//       -khtml-user-drag: element;
+//       -webkit-user-drag: element;
+//     }
+//     &.drag-over {
+//       > a[draggable] {
+//         background-color: #316ac5;
+//         color: white;
+//         border: 1px #316ac5 solid;
+//         opacity: 0.8;
+//       }
+//     }
+//     &.drag-over-gap-top {
+//       > a[draggable] {
+//         border-top: 2px blue solid;
+//       }
+//     }
+//     &.drag-over-gap-bottom {
+//       > a[draggable] {
+//         border-bottom: 2px blue solid;
+//       }
+//     }
+//     &.filter-node {
+//       > .@{treePrefixCls}-node-content-wrapper {
+//         color: #a60000!important;
+//         font-weight: bold!important;
+//       }
+//     }
+//     ul {
+//       margin: 0;
+//       padding: 0 0 0 18px;
+//       &.@{treePrefixCls}-line {
+//         background: url("data:image/gif;base64,R0lGODlhCQACAIAAAMzMzP///yH5BAEAAAEALAAAAAAJAAIAAAIEjI9pUAA7") 0 0 repeat-y;
+//       }
+//     }
+//     a {
+//       display: inline-block;
+//       padding: 1px 3px 0 0;
+//       margin: 0;
+//       cursor: pointer;
+//       height: 17px;
+//       text-decoration: none;
+//       vertical-align: top;
+//     }
+//     span {
+//       &.@{treePrefixCls}-switcher,
+//       &.@{treePrefixCls}-checkbox,
+//       &.@{treePrefixCls}-iconEle {
+//         line-height: 16px;
+//         margin-right: 2px;
+//         width: 16px;
+//         height: 16px;
+//         display: inline-block;
+//         vertical-align: middle;
+//         border: 0 none;
+//         cursor: pointer;
+//         outline: none;
+//         background-color: transparent;
+//         background-repeat: no-repeat;
+//         background-attachment: scroll;
+//       }
+//       &.@{treePrefixCls}-icon_loading {
+//         margin-right: 2px;
+//         vertical-align: top;
+//       }
+//       &.@{treePrefixCls}-switcher {
+//         &-noop {
+//           cursor: auto;
+//           background: none;
+//         }
+//         &_open {
+//           background-position: -93px -56px;
+//         }
+//         &_close {
+//           background-position: -75px -56px;
+//         }
+//       }
+//       &.@{treePrefixCls}-checkbox {
+//         width: 13px;
+//         height: 13px;
+//         margin: 0 3px;
+//         background-position: 0 0;
+//         &-checked {
+//           background-position: -14px 0;
+//         }
+//         &-indeterminate {
+//           background-position: -14px -28px;
+//         }
+//         &-disabled {
+//           background-position: 0 -56px;
+//         }
+//         &.@{treePrefixCls}-checkbox-checked.@{treePrefixCls}-checkbox-disabled {
+//           background-position: -14px -56px;
+//         }
+//         &.@{treePrefixCls}-checkbox-indeterminate.@{treePrefixCls}-checkbox-disabled {
+//           position: relative;
+//           background: #ccc;
+//           border-radius: 3px;
+//           &::after {
+//             content: ' ';
+//             -webkit-transform: scale(1);
+//             transform: scale(1);
+//             position: absolute;
+//             left: 3px;
+//             top: 5px;
+//             width: 5px;
+//             height: 0;
+//             border: 2px solid #fff;
+//             border-top: 0;
+//             border-left: 0;
+//           }
+//         }
+//       }
+//     }
+//   }
+//   &-child-tree {
+//     display: none;
+//     &-open {
+//       display: block;
+//     }
+//   }
+//   &-treenode-disabled {
+//     >span,
+//     >a,
+//     >a span {
+//       color: #ccc;
+//       cursor: not-allowed;
+//     }
+//   }
+//   &-node-selected {
+//     background-color: #ffe6b0;
+//     border: 1px #ffb951 solid;
+//     opacity: 0.8;
+//   }
+//   &-icon__open {
+//     margin-right: 2px;
+//     background-position: -110px -16px;
+//     vertical-align: top;
+//   }
+//   &-icon__close {
+//     margin-right: 2px;
+//     background-position: -110px 0;
+//     vertical-align: top;
+//   }
+// }

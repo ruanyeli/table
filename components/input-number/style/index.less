@@ -1,0 +1,163 @@
+@import "../../style/themes/default.less";
+@import "../../style/mixins/index.less";
+@import "./mixin.less";
+@import "../../input/style/mixin";
+.handler-disabled(){
+	opacity: 0.72;
+	color: #ccc !important;
+	cursor: not-allowed !important;
+}
+.@{input-number-prefix} {
+	margin:0;
+	padding: 0;
+	font-size: @font-size-base;
+	height: @input-height-base;
+	display: inline-block;
+	width: 100px;
+	position: relative;
+	&-handler{
+		width: 100%;
+		height: 50%;
+		text-align: center;
+		line-height: 0;
+		overflow: hidden;
+		position: relative;
+		display: block;
+		transition:all 0.1s linear;
+		border: 0;
+		background:none;
+		border-radius: 0;
+		outline:none;
+		border-left: @border-width-base @border-style-base @border-color-base;
+		font-size: 12px;
+		&:active{
+			background: #f4f4f4;
+		}
+		&:hover{
+			color: @primary-5;
+		}
+		&:hover &-up-inner,
+		&:hover &-down-inner{
+			color: @primary-5;
+		}
+	}
+	&-handler-wrap{
+		width: @input-number-handle-width;
+		overflow: hidden;
+		height: @input-height-base - 2 * @border-width-base;
+		position: absolute;
+		top: @border-width-base;
+		right: @border-width-base;
+		border-radius: 0 @border-radius-base @border-radius-base 0;
+		transition: opacity 0.24s linear 0.1s;
+		z-index: 1;
+		opacity: 0;
+	}
+	&-handler-wrap &-handler-wrap:hover &-handler {
+		height: 40%;
+	}
+	&:hover &-handler-wrap, &:hover &-handler-wrap-cw{
+		opacity: 1;
+	}
+	&-handler-wrap &-handler-up{
+		cursor: pointer;
+		border-top-right-radius: @border-radius-base;
+		&:hover{
+			height: 60%;
+		}
+	}
+	&-handler-wrap &-handler-down{
+		cursor: pointer;
+		border-top:  @border-width-base @border-style-base @border-color-base;
+		border-bottom-right-radius: @border-radius-base;
+		&:hover{
+			height: 60%;
+			margin-top: -10%;
+		}
+	}
+	// &-handler-wrap &-handler-up-inner,&-handler-wrap &-handler-down-inner{
+	// 	width: 12px;
+	// 	height: 12px;
+	// 	line-height: 12px;
+	// 	position: absolute;
+	// 	right:4px;
+	// 	color: @text-color-secondary;
+	// }
+	&-handler-wrap-cw{
+		width: @input-number-handle-cw-width * 2;
+		height: @input-height-base - 2 * @border-width-base;
+		position: absolute;
+		top: @border-width-base;
+		right: @border-width-base;
+		border-radius: 0 @border-radius-base @border-radius-base 0;
+		transition: opacity 0.24s linear 0.1s;
+		opacity: 0;
+		z-index: 1;
+		.@{input-number-prefix}-handler{
+			width: @input-number-handle-cw-width;
+			height: 100%;
+			display: inline-block;
+			border-left: @border-width-base @border-style-base @border-color-base;
+			// &-down-disabled,
+			// &-up-disabled{
+			// 	background: #ededed;
+			// 	&:hover{
+			// 		height: 100% !important;
+			// 	}
+			// }
+		}
+	}
+	// &-handler-down-disabled,
+	// &-handler-up-disabled{
+	// 	&:hover{
+	// 		margin-top: 0 !important;
+	// 	}
+	// }
+
+	&-handler-down-disabled,
+	&-handler-up-disabled,
+	&-disabled{
+		.handler-disabled();
+
+	}
+	&:hover {
+		.hover();
+	}
+
+	&-focused {
+		.active();
+	}
+
+	&-disabled {
+		.disabled();
+	}
+	.@{td-prefix}-input {
+		padding-right: @input-padding-horizontal + @input-number-handle-width;
+	}
+	&-disabled{
+		.@{input-number-prefix}-input {
+			opacity: 0.72;
+			cursor: not-allowed;
+			background-color: @disabled-bg;
+		}
+		.@{input-number-prefix}-handler-wrap, .@{input-number-prefix}-handler-wrap-cw{
+			border-color: @border-color-base;
+		}
+		.@{input-number-prefix}-handler {
+			.handler-disabled();
+		}
+	}
+	&-lg{
+		height: @input-height-lg;
+		.@{input-number-prefix}-handler-wrap, .@{input-number-prefix}-handler-wrap-cw {
+			height: @input-height-lg - 2 * @border-width-base;
+		}
+	}
+	&-sm{
+		height: @input-height-sm;
+		font-size: 12px;
+		.@{input-number-prefix}-handler-wrap, .@{input-number-prefix}-handler-wrap-cw {
+			height: @input-height-sm - 2 * @border-width-base;
+		}
+	}
+}

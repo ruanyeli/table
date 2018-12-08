@@ -1,0 +1,42 @@
+.@{prefixCls} {
+  &-card {
+    .@{prefixCls}-tab {
+      border: 1px solid @tabs-border-color;
+      margin-right: @tabs-card-base-margin-right;
+      border-top-left-radius: @tabs-card-border-radius;
+      border-top-right-radius: @tabs-card-border-radius;
+      padding: @tabs-card-base-padding;
+      &-active {
+        border-bottom-color: #fff;
+      }
+    }
+    .@{prefixCls}-ink-bar {
+      background-color: @tabs-card-ink-bar-color;
+    }
+    .@{prefixCls}-tab {
+      background-color: @tabs-card-tab-bg-color;
+      // height: ~'calc(@{tabs-card-tab-nav-base-height} - 1px)';
+      &-active {
+        background-color: @tabs-card-tab-active-bg-color;
+      }
+    }
+    .@{prefixCls}-ink-bar {
+      transition: none;
+      display: none;
+    }
+    .@{prefixCls}-nav {
+      &-animated {
+        .@{prefixCls}-tab {
+          transition: all @tabs-effect-duration @tabs-easing-in-out;
+        }
+      }
+      &-wrap {
+        margin-bottom: -1px;
+      }
+      &-container {
+        // height: @tabs-card-tab-nav-base-height;
+        margin-bottom: 0;
+      }
+    }
+  }
+}

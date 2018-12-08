@@ -1,0 +1,27 @@
+@import "../../style/themes/default.less";
+
+.@{drawer-prefix} {
+  &-wrap {
+		position: fixed;
+		z-index: @drawer-zindex;
+    background-color: @drawer-bg;
+    transition: transform @drawer-motion-time;
+    overflow: scroll;
+	}
+  &-shadow {
+    box-shadow: @drawer-shadow;
+  }
+  &-mask {
+		position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-color: rgba(51, 51, 51, .6);
+    height: 100%;
+    z-index: @drawer-zindex-mask;
+		&-hidden {
+      display: none;
+    }
+	}
+}

@@ -1,0 +1,41 @@
+.@{list-prefix}-bordered {
+  border-radius: @border-radius-base;
+  border: 1px solid @border-color-base;
+  .@{list-prefix}-header {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .@{list-prefix}-footer {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .@{list-prefix}-item {
+    border-bottom: 1px solid @border-color-split;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .@{list-prefix}-pagination {
+    margin: 16px 24px;
+  }
+
+  &.@{list-prefix}-sm {
+    .@{list-prefix}-item {
+      padding-left: 16px;
+      padding-right: 16px;
+    }
+    .@{list-prefix}-header,
+    .@{list-prefix}-footer {
+      padding: 8px 16px;
+    }
+  }
+
+  &.@{list-prefix}-lg {
+    .@{list-prefix}-header,
+    .@{list-prefix}-footer {
+      padding: 16px 24px;
+    }
+  }
+}

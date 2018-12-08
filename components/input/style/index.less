@@ -1,0 +1,25 @@
+@import "../../style/themes/default.less";
+@import "./mixin.less";
+
+
+textarea.@{input-prefix} {
+	height: auto;
+	word-break: break-all;
+	max-width: 100%;
+}
+.@{input-prefix} {
+	.input;
+	.placeholder;
+}
+
+.@{input-prefix}-group{
+	.input-group(~"@{input-prefix}");
+}
+
+.@{input-prefix}-affix-wrapper {
+  .input-affix-wrapper(~"@{input-prefix}");
+
+  .@{input-prefix} {
+    min-height: 100%;
+  }
+}
