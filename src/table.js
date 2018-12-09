@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import "./index.less";
 import Table from './components/table/index';
-
+import SB from './baseTable';
+import ChoiceableTable from './choiceableTable';
 const dataSource = [{
   key: '1',
   seqId: '1500537541872152S170C295D6830048',
@@ -36,6 +37,8 @@ class App extends Component {
     return (
       <div className="App">
         <Table columns={columns} dataSource={dataSource}  rowKey='id' />
+        <SB/>
+        <ChoiceableTable/>
       </div>
     );
   }
