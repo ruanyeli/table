@@ -3,6 +3,8 @@ import "./index.less";
 import Table from './components/table/index';
 import SB from './baseTable';
 import ChoiceableTable from './choiceableTable';
+import ResizableTable from './resizableTable';
+import MergeTable from './mergeTable';
 const dataSource = [{
   key: '1',
   seqId: '1500537541872152S170C295D6830048',
@@ -39,6 +41,8 @@ class App extends Component {
         <Table columns={columns} dataSource={dataSource}  rowKey='id' />
         <SB/>
         <ChoiceableTable/>
+        <ResizableTable />
+        <MergeTable/>
       </div>
     );
   }

@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import "./index.less";
 import Table from './components/table/index';
-import SB from './baseTable';
 
 const rowSelection = {
     onChange: (selectedRowKeys, selectedRows) => {
