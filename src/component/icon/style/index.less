@@ -1,0 +1,288 @@
+
+@import '../../style/index.less';
+
+@icon-font-path: "./fonts/";
+
+@font-face {
+  font-family: "@{icon-prefix}";
+  src: url('@{icon-font-path}yicon.ttf'),
+     url('@{icon-font-path}yicon.eot'); /* IE9 */
+  font-weight: normal;
+  font-style: normal;
+}
+
+.@{icon-prefix} {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'yicon' !important;
+  // speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.@{icon-prefix}-clock:before { content: "\e921"; }
+
+.@{icon-prefix}-forbidden:before { content: "\e620"; }
+
+.@{icon-prefix}-sort:before { content: "\e621"; }
+
+.@{icon-prefix}-zoomin:before { content: "\e622"; }
+
+.@{icon-prefix}-subscribe:before { content: "\e623"; }
+
+.@{icon-prefix}-log:before { content: "\e624"; }
+
+.@{icon-prefix}-file:before { content: "\e625"; }
+
+.@{icon-prefix}-message:before { content: "\e627"; }
+
+.@{icon-prefix}-import:before { content: "\e629"; }
+
+.@{icon-prefix}-export:before { content: "\e62a"; }
+
+.@{icon-prefix}-upload:before { content: "\e626"; }
+
+.@{icon-prefix}-download:before { content: "\e628"; }
+
+.@{icon-prefix}-edit:before { content: "\e62b"; }
+
+.@{icon-prefix}-delete:before { content: "\e62c"; }
+
+.@{icon-prefix}-setting:before { content: "\e62d"; }
+
+.@{icon-prefix}-like:before { content: "\e62e"; }
+
+.@{icon-prefix}-store:before { content: "\e62f"; }
+
+.@{icon-prefix}-calendar:before { content: "\e630"; }
+
+.@{icon-prefix}-plus:before { content: "\e631"; }
+
+.@{icon-prefix}-flow:before { content: "\e632"; }
+
+.@{icon-prefix}-output:before { content: "\e633"; }
+
+.@{icon-prefix}-tupian:before { content: "\e634"; }
+
+.@{icon-prefix}-flag:before { content: "\e635"; }
+
+.@{icon-prefix}-search:before { content: "\e636"; }
+
+.@{icon-prefix}-biaoqian:before { content: "\e637"; }
+
+.@{icon-prefix}-fenxiang:before { content: "\e638"; }
+
+.@{icon-prefix}-angle-double-down:before { content: "\e63c"; }
+
+.@{icon-prefix}-angle-double-right:before { content: "\e63d"; }
+
+.@{icon-prefix}-angle-double-left:before { content: "\e63e"; }
+
+.@{icon-prefix}-angle-double-up:before { content: "\e63f"; }
+
+.@{icon-prefix}-unfold:before { content: "\e640"; }
+
+.@{icon-prefix}-enter:before { content: "\e641"; }
+
+.@{icon-prefix}-return:before { content: "\e642"; }
+
+.@{icon-prefix}-packup:before { content: "\e643"; }
+
+.@{icon-prefix}-arrow-circle-left:before { content: "\e644"; }
+
+.@{icon-prefix}-arrow-circle-down:before { content: "\e645"; }
+
+.@{icon-prefix}-arrow-circle-o-down:before { content: "\e646"; }
+
+.@{icon-prefix}-arrow-circle-o-right:before { content: "\e647"; }
+
+.@{icon-prefix}-arrow-circle-o-up:before { content: "\e648"; }
+
+.@{icon-prefix}-arrow-circle-o-left:before { content: "\e649"; }
+
+.@{icon-prefix}-arrow-circle-right:before { content: "\e64a"; }
+
+.@{icon-prefix}-arrow-down:before { content: "\e64b"; }
+
+.@{icon-prefix}-arrow-circle-up:before { content: "\e64c"; }
+
+.@{icon-prefix}-arrow-right:before { content: "\e64d"; }
+
+.@{icon-prefix}-arrow-left:before { content: "\e64e"; }
+
+.@{icon-prefix}-arrow-square-down:before { content: "\e64f"; }
+
+.@{icon-prefix}-arrow-square-o-down:before { content: "\e650"; }
+
+.@{icon-prefix}-arrow-square-left:before { content: "\e651"; }
+
+.@{icon-prefix}-arrow-square-o-left:before { content: "\e652"; }
+
+.@{icon-prefix}-arrow-square-o-right:before { content: "\e653"; }
+
+.@{icon-prefix}-triangle-down:before { content: "\e654"; }
+
+.@{icon-prefix}-triangle-left:before { content: "\e655"; }
+
+.@{icon-prefix}-arrow-up:before { content: "\e656"; }
+
+.@{icon-prefix}-arrow-square-right:before { content: "\e657"; }
+
+.@{icon-prefix}-arrow-square-up:before { content: "\e658"; }
+
+.@{icon-prefix}-arrow-square-o-up:before { content: "\e659"; }
+
+.@{icon-prefix}-triangle-up:before { content: "\e65a"; }
+
+.@{icon-prefix}-triangle-right:before { content: "\e65b"; }
+
+.@{icon-prefix}-fold:before { content: "\e65c"; }
+
+.@{icon-prefix}-unfold1:before { content: "\e65d"; }
+
+.@{icon-prefix}-fullscreen:before { content: "\e65e"; }
+
+.@{icon-prefix}-top:before { content: "\e65f"; }
+
+.@{icon-prefix}-narrow:before { content: "\e660"; }
+
+.@{icon-prefix}-arrow-v:before { content: "\e661"; }
+
+.@{icon-prefix}-down:before { content: "\e662"; }
+
+.@{icon-prefix}-arrow-h:before { content: "\e663"; }
+
+.@{icon-prefix}-accessory:before { content: "\e639"; }
+
+.@{icon-prefix}-bars:before { content: "\e63a"; }
+
+.@{icon-prefix}-screening:before { content: "\e63b"; }
+
+.@{icon-prefix}-select-square:before { content: "\e664"; }
+
+.@{icon-prefix}-close-circle-o:before { content: "\e665"; }
+
+.@{icon-prefix}-check-circle-o:before { content: "\e666"; }
+
+.@{icon-prefix}-check-circle:before { content: "\e667"; }
+
+.@{icon-prefix}-check:before { content: "\e668"; }
+
+.@{icon-prefix}-check-square-o:before { content: "\e669"; }
+
+.@{icon-prefix}-cross-circle:before { content: "\e66a"; }
+
+.@{icon-prefix}-cross:before { content: "\e66b"; }
+
+.@{icon-prefix}-close-square-o:before { content: "\e66c"; }
+
+.@{icon-prefix}-close-square:before { content: "\e66d"; }
+
+.@{icon-prefix}-exclamation-circle-o:before { content: "\e66e"; }
+
+.@{icon-prefix}-exclamation-circle:before { content: "\e66f"; }
+
+.@{icon-prefix}-info-circle:before { content: "\e670"; }
+
+.@{icon-prefix}-exclamation:before { content: "\e671"; }
+
+.@{icon-prefix}-exclamation-square:before { content: "\e672"; }
+
+.@{icon-prefix}-exclamation-square-o:before { content: "\e673"; }
+
+.@{icon-prefix}-info-square-o:before { content: "\e674"; }
+
+.@{icon-prefix}-info-circle-o:before { content: "\e675"; }
+
+.@{icon-prefix}-info-square:before { content: "\e676"; }
+
+.@{icon-prefix}-minus-square:before { content: "\e677"; }
+
+.@{icon-prefix}-minus-circle-o:before { content: "\e678"; }
+
+.@{icon-prefix}-info:before { content: "\e679"; }
+
+.@{icon-prefix}-minus-circle:before { content: "\e67a"; }
+
+.@{icon-prefix}-minus-square-o:before { content: "\e67b"; }
+
+.@{icon-prefix}-minus:before { content: "\e67c"; }
+
+.@{icon-prefix}-plus-square-o:before { content: "\e67d"; }
+
+.@{icon-prefix}-plus-circle-o:before { content: "\e67e"; }
+
+.@{icon-prefix}-plus1:before { content: "\e67f"; }
+
+.@{icon-prefix}-plus-square:before { content: "\e680"; }
+
+.@{icon-prefix}-plus-circle:before { content: "\e681"; }
+
+.@{icon-prefix}-quesion-circle:before { content: "\e682"; }
+
+.@{icon-prefix}-question:before { content: "\e683"; }
+
+.@{icon-prefix}-question-square:before { content: "\e684"; }
+
+.@{icon-prefix}-question-square-o:before { content: "\e685"; }
+
+.@{icon-prefix}-question-circle-o:before { content: "\e686"; }
+
+.@{icon-prefix}-new-group:before { content: "\e687"; }
+
+.@{icon-prefix}-template:before { content: "\e688"; }
+
+.@{icon-prefix}-copy-paste:before { content: "\e689"; }
+
+.@{icon-prefix}-foreach:before { content: "\e68a"; }
+
+.@{icon-prefix}-rule:before { content: "\e68b"; }
+
+.@{icon-prefix}-index:before { content: "\e68c"; }
+
+.@{icon-prefix}-logout:before { content: "\e68d"; }
+
+.@{icon-prefix}-login:before { content: "\e68e"; }
+
+.@{icon-prefix}-refresh:before { content: "\e68f"; }
+
+.@{icon-prefix}-loading:before { content: "\e690"; }
+
+.@{icon-prefix}-more:before { content: "\e691"; }
+
+.@{icon-prefix}-test:before { content: "\e692"; }
+
+
+
+.@{icon-prefix} {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: '@{icon-prefix}' !important;
+  // speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@keyframes loadingCircle {
+  0% {
+    transform-origin: 50% 50%;
+    transform: rotate(0deg);
+  }
+  100% {
+    transform-origin: 50% 50%;//设置元素的基点，前面表示x轴，后面表示Y轴，默认为50% 50%
+    transform: rotate(360deg);//设置元素旋转360度
+  }
+}
+
+.@{icon-prefix}-loading {
+  animation: loadingCircle 1s infinite linear;
+  display: inline-block;
+}

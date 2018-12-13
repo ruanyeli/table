@@ -4,10 +4,10 @@ import Icon from './component/icon/index';
 
 class App extends Component {
   render() {
-    console.log('table')
+    console.log('table??? ')
     return (
       <div className="App">
-        <Icon type="link"/>
+        <Icon type="loading"/>
       </div>
     );
   }

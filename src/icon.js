@@ -7,7 +7,8 @@ class App extends Component {
     console.log('icon')
     return (
       <div className="App">
-        <Icon type="link"/>
+        <Icon type="loading"/>
+        <Icon type="more"/>
       </div>
     );
   }
