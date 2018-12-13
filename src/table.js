@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Icon from './component/icon/index';
 import "./index.less";
+import Icon from './component/icon/index';
 
 class App extends Component {
   render() {
@@ -12,5 +12,4 @@ class App extends Component {
     );
   }
 }
-
 export default App;

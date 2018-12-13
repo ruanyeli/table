@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 // import './index.css';
 // import Table from './components/table/index';
 // import Table from './components/table';
-import Table from './table';
+import Icon from './icon';
 // import * as serviceWorker from './serviceWorker';
 // console.log('ReactDOM.render')
-ReactDOM.render(<Table />, document.getElementById('root'));
+ReactDOM.render(<Icon />, document.getElementById('root'));
