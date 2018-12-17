@@ -1,4 +1,4 @@
-import s from './style';
+import s from './style/index';
 import React from 'react';
 import cn from 'classnames';
 import omit from 'lodash/omit';
