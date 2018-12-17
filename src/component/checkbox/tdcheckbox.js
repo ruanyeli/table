@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import shallowEqual from 'shallowequal';
 
 export default class TDCheckbox extends React.Component{
     static propTypes = {
@@ -102,7 +103,7 @@ export default class TDCheckbox extends React.Component{
         },{});
 
         const {checked} = this.state;
-        const classString = className(prefixCls,className,{
+        const classString = classNames(prefixCls,className,{
             [`${prefixCls}-checked`]:checked,
             [`${prefixCls}-disabled`]:disabled
         });
@@ -114,7 +115,7 @@ export default class TDCheckbox extends React.Component{
             <input 
                 name={name}
                 type={type}
-                readyOnly={readyOnly}
+                readOnly={readOnly}
                 disabled={disabled}
                 tabIndex={tabIndex}
                 className={className}

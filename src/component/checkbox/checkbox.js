@@ -14,7 +14,7 @@ export default class Checkbox extends Component{
     };
 
     static propsTypes = {
-        type:this.propsTypes.string,
+        type:PropTypes.string,
         defaultChecked:PropTypes.oneOfType([PropTypes.number,PropTypes.bool]),
         checked:PropTypes.oneOfType([PropTypes.number,PropTypes.bool]),
         className:PropTypes.string,
@@ -62,7 +62,7 @@ export default class Checkbox extends Component{
                 style={st}
             >
                 <TDCheckbox
-                 {...checkboxTypes} 
+                 {...checkboxPropTypes} 
                 prefixCls={prefixCls} 
                 className={indeterminateClass}
                 />

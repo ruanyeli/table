@@ -19,9 +19,9 @@ class App extends Component {
         <Icon type="more"/>
         <Loading text="请稍后" size="large"/>
         <CheckboxGroup defaultValue={[1]} onChange={onChange}>
-            <Checkbox value={1}>Checkbox1</Checkbox>
-            <Checkbox value={2}>Checkbox2</Checkbox>
-            <Checkbox value={3}>Checkbox3</Checkbox>
+            <Checkbox value={1}>测试1</Checkbox>
+            <Checkbox value={2}>测试2</Checkbox>
+            <Checkbox value={3}>测试3</Checkbox>
         </CheckboxGroup>
       </div>
       

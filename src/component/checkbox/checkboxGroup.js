@@ -97,7 +97,7 @@ export default class CheckboxGroup extends React.Component{
                        <Checkbox
                         key={index}
                         disabled={disabled}
-                        value={value}
+                        value={option}
                         checked={checkboxValue.indexOf(option.value) >-1}
                         onChange={this.onCheckboxChange}
                         >
@@ -109,7 +109,7 @@ export default class CheckboxGroup extends React.Component{
        }
 
        const st = Object.assign({},style);//方法用于将所有可枚举属性的值从一个或多个源对象复制到目标对象。它将返回目标对象。
-       const className = cn(className,{
+       const classNames = cn(className,{
            [`${prefixCls}-group`]:true
        });
 
