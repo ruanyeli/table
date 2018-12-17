@@ -15,6 +15,8 @@ class App extends Component {
     return (
       <div className="App">
         <Icon type="link"/>
+        <Icon type="loading"/>
+        <Icon type="more"/>
         <Loading text="请稍后" size="large"/>
         <CheckboxGroup defaultValue={[1]} onChange={onChange}>
             <Checkbox value={1}>Checkbox1</Checkbox>
