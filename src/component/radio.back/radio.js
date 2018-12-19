@@ -13,38 +13,74 @@ export default class Radio extends React.Component{
     type:PropTypes.string,
     style:PropTypes.object,
     checked: PropTypes.oneOfType([PropTypes.number,PropTypes.bool]),
-    defaultChecked:PropTypes.oneOfType([PropTypes.number,PropTypes.bool])
+    defaultChecked:PropTypes.oneOfType([PropTypes.number,PropTypes.bool]),
+    value:PropTypes.number
   }
 
   static defaultProps = {
+    prefixCls:s.radioPrefix,
     classnames:'',
     type:'radio',
     style:{},
     defaultChecked:false,
-    prefixCls:s.radioPrefix
+    value:''
   }
+
+  handleChange = (e) => {
+    const { props } = this;
+    console.log(this.props.checked);
+    if (props.disabled) {
+        return;
+    }
+    if (!('checked' in props)) {
+        this.setState({
+            checked: e.target.checked
+        });
+    }
+    props.onChange({
+        target: {
+            ...props,
+            checked: e.target.checked
+        },
+        stopPropagation() {
+            e.stopPropagation();
+        },
+        preventDefault() {
+            e.preventDefault();
+        }
+
+    });
+    console.log(this.props.checked);
+};
 
   shouldComponentUpdate(nextProps,nextState,nextContext){
     return !shallowEqual(nextProps,this.props)||!shallowEqual(nextContext,this.context)||!shallowEqual(nextState,this.state);
   }
 
-
-
-
   render(){
-    const { type,classnames,style,checked,children,...others} =this.props;
-    const classname = cn(classname,{
-      [`${prefixCls}-wrapper`]:true
+    const {props} = this;
+    const { prefixCls,type,className,style,checked,children,value,...others} =props;
+
+    const st = Object.assign({}, style);
+    const classNames = cn(className,{
+      [`${prefixCls}-wrapper`]:true,
+      [`${prefixCls}-checked`]:props.checked,
     });
+    console.log(props.checked);
 
-
+    console.log({prefixCls});
 
     return(
-      <label classNames={classname}>
-
-      </label>);
-
-  
+      <label 
+      className={classNames}
+      style={st}
+      onChange={this.handleChange}>
+      {/* 看组件下是否有文字 */}
+      {children !== undefined ? <span className={`${prefixCls}-text`}>{children}</span> : null}
+      </label>
+      );
   }
 
 }
+
+

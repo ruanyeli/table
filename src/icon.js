@@ -3,7 +3,7 @@ import "./index.less";
 import Icon from './component/icon/index';
 import Loading from './component/loading/index';
 import Checkbox from './component/checkbox/index';
-import Radio from './component/radio/radio';
+import Radio from './component/radio.back/radio';
 
 const CheckboxGroup = Checkbox.CheckboxGroup;
 
@@ -48,8 +48,8 @@ class App extends Component {
         </CheckboxGroup>
         <CheckboxGroup value={this.state.value1} options={checkboxOptions1} onChange={this.onCheckboxGroupChange1} />
         <CheckboxGroup value={this.state.value2} options={checkboxOptions2} onChange={this.onCheckboxGroupChange2} />
-
-        <Radio>radio</Radio>
+        <Radio value={1} checked='true'>radio</Radio>
+        <Radio value={2} checked='false'>radio2</Radio>
       </div>
     );
   }
