@@ -48,8 +48,8 @@ class App extends Component {
         </CheckboxGroup>
         <CheckboxGroup value={this.state.value1} options={checkboxOptions1} onChange={this.onCheckboxGroupChange1} />
         <CheckboxGroup value={this.state.value2} options={checkboxOptions2} onChange={this.onCheckboxGroupChange2} />
-        <Radio value={1} checked='true'>radio</Radio>
-        <Radio value={2} checked='false'>radio2</Radio>
+        <Radio value={1} checked={true}>radio</Radio>
+        <Radio value={2}>radio2</Radio>
       </div>
     );
   }

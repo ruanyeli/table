@@ -6,79 +6,94 @@ import TDCheckbox from '../checkbox/tdcheckbox';
 import s from './style';
 
 
-export default class Radio extends React.Component{
-
-  static PropTypes={
+export default class Radio extends React.Component {
+  static PropTypes = {
     classnames: PropTypes.string,
-    type:PropTypes.string,
-    style:PropTypes.object,
-    checked: PropTypes.oneOfType([PropTypes.number,PropTypes.bool]),
-    defaultChecked:PropTypes.oneOfType([PropTypes.number,PropTypes.bool]),
-    value:PropTypes.number
+    type: PropTypes.string,
+    style: PropTypes.object,
+    checked: PropTypes.oneOfType([PropTypes.number, PropTypes.bool]),
+    defaultChecked: PropTypes.oneOfType([PropTypes.number, PropTypes.bool]),
+    value: PropTypes.number
   }
 
   static defaultProps = {
-    prefixCls:s.radioPrefix,
-    classnames:'',
-    type:'radio',
-    style:{},
-    defaultChecked:false,
-    value:''
+    prefixCls: s.radioPrefix,
+    classnames: '',
+    type: 'radio',
+    style: {},
+    defaultChecked: false,
+    value: '',
+    onChange() {
+    }
+  }
+
+  constructor(props) {
+    super(props);
+    const checked = 'checked' in props ? props.checked : props.defaultChecked;
+    this.state = {
+      checked
+    };
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if ('checked' in nextProps) {
+      this.setState({
+        checked: nextProps.checked
+      });
+    }
   }
 
   handleChange = (e) => {
     const { props } = this;
-    console.log(this.props.checked);
     if (props.disabled) {
-        return;
+      return;
     }
+    console.log('checked' in props);
     if (!('checked' in props)) {
-        this.setState({
-            checked: e.target.checked
-        });
-    }
-    props.onChange({
-        target: {
-            ...props,
-            checked: e.target.checked
-        },
-        stopPropagation() {
-            e.stopPropagation();
-        },
-        preventDefault() {
-            e.preventDefault();
-        }
-
+      this.setState({
+        checked: e.target.checked
+      });
+    } 
+    this.props.onChange({
+      target: {
+        ...props,
+        checked: e.target.checked
+      },
+      stopPropagation() {
+        e.stopPropagation();
+      },
+      preventDefault() {
+        e.preventDefault();
+      }
     });
-    console.log(this.props.checked);
-};
+  };
 
-  shouldComponentUpdate(nextProps,nextState,nextContext){
-    return !shallowEqual(nextProps,this.props)||!shallowEqual(nextContext,this.context)||!shallowEqual(nextState,this.state);
+  shouldComponentUpdate(nextProps, nextState, nextContext) {
+    return !shallowEqual(nextProps, this.props) || !shallowEqual(nextContext, this.context) || !shallowEqual(nextState, this.state);
   }
 
-  render(){
-    const {props} = this;
-    const { prefixCls,type,className,style,checked,children,value,...others} =props;
+  render() {
+    const { props } = this;
+    const { prefixCls, type, className, style, checked, children, value, ...others } = props;
 
     const st = Object.assign({}, style);
-    const classNames = cn(className,{
-      [`${prefixCls}-wrapper`]:true,
-      [`${prefixCls}-checked`]:props.checked,
+    const classNames = cn(className, {
+      [`${prefixCls}-wrapper`]: true,
+      [`${prefixCls}-checked`]: props.checked,
     });
-    console.log(props.checked);
-
-    console.log({prefixCls});
-
-    return(
-      <label 
-      className={classNames}
-      style={st}
-      onChange={this.handleChange}>
-      {/* 看组件下是否有文字 */}
-      {children !== undefined ? <span className={`${prefixCls}-text`}>{children}</span> : null}
+    return (
+      <label>
+        <input
+          type={type}
+          checked={props.checked}
+          value={value}
+          onChange={this.handleChange}
+          disabled={disabled}
+        >
+        </input>
+        {children !== undefined ? <span className={`${prefixCls}-text`}>{children}</span> : null}
       </label>
-      );
+    );
   }
 
 }
