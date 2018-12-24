@@ -4,7 +4,7 @@ import cn from 'classnames';
 import shallowEqual from 'shallowequal';
 import Checkbox from '../checkbox/tdcheckbox';
 import s from './style';
-import { log } from 'util';
+// import { log } from 'util';
 
 export default class Radio extends Component {
   static defaultProps = {
@@ -60,7 +60,6 @@ export default class Radio extends Component {
       [`${prefixCls}-wrapper-vertical`]: verticalDirection,
     });
     // console.log('radioPropTypes', radioPropTypes);
-    
     return (
       <label className={classNames} style={st}>
         <Checkbox {...radioPropTypes} prefixCls={prefixCls} />

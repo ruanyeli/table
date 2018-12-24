@@ -101,14 +101,14 @@ module.exports = {
     'react/jsx-wrap-multilines': 'off', // Incompatible with prettier
     'react/jsx-indent-props': 'off', // Incompatible with prettier
     'react/jsx-one-expression-per-line': 'off', // Incompatible with prettier
-    'react/jsx-handler-names': [
-      'error',
-      {
-        // airbnb is disabling this rule
-        eventHandlerPrefix: 'handle',
-        eventHandlerPropPrefix: 'on',
-      },
-    ],
+    // 'react/jsx-handler-names': [
+    //   'error',
+    //   {
+    //     // airbnb is disabling this rule
+    //     eventHandlerPrefix: 'handle',
+    //     eventHandlerPropPrefix: 'on',
+    //   },
+    // ],
     'react/jsx-curly-brace-presence': 'off', // airbnb use error, it's buggy
     'react/forbid-prop-types': 'off', // airbnb use error
     'react/require-default-props': 'off', // airbnb use error, it's buggy
