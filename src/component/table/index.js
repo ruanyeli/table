@@ -1,1 +1,8 @@
-export { default } from './Table';//把table导出
+/**
+ * @Author: Zhengfeng.Yao <yzf>
+ * @Date:   2017-05-24 15:04:30
+ * @Last modified by:   yzf
+ * @Last modified time: 2017-05-24 15:04:33
+ */
+
+export { default } from './Table';
