@@ -74,7 +74,7 @@ export default class Radio extends React.Component {
 
   render() {
     const { props } = this;
-    const { prefixCls, type, className, style, checked, children, value, ...others } = props;
+    const { prefixCls, type, className, style, checked, children, value } = props;
 
     const st = Object.assign({}, style);
     const classNames = cn(className, {
@@ -88,14 +88,10 @@ export default class Radio extends React.Component {
           checked={props.checked}
           value={value}
           onChange={this.handleChange}
-          disabled={disabled}
-        >
-        </input>
+          // disabled={disabled}
+        />
         {children !== undefined ? <span className={`${prefixCls}-text`}>{children}</span> : null}
       </label>
     );
   }
-
 }
-
-

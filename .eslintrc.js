@@ -87,7 +87,7 @@ module.exports = {
     // It would be better to enable this rule, but it might slow us down.
     'import/no-extraneous-dependencies': 'off',
     'import/namespace': ['error', { allowComputed: true }],
-    "import/prefer-default-export": off,
+    "import/prefer-default-export": 'off',
     'import/order': [
       'error',
       {
@@ -101,14 +101,14 @@ module.exports = {
     'react/jsx-wrap-multilines': 'off', // Incompatible with prettier
     'react/jsx-indent-props': 'off', // Incompatible with prettier
     'react/jsx-one-expression-per-line': 'off', // Incompatible with prettier
-    'react/jsx-handler-names': [
-      'error',
-      {
-        // airbnb is disabling this rule
-        eventHandlerPrefix: 'handle',
-        eventHandlerPropPrefix: 'on',
-      },
-    ],
+    // 'react/jsx-handler-names': [
+    //   'error',
+    //   {
+    //     // airbnb is disabling this rule
+    //     eventHandlerPrefix: 'handle',
+    //     eventHandlerPropPrefix: 'on',
+    //   },
+    // ],
     'react/jsx-curly-brace-presence': 'off', // airbnb use error, it's buggy
     'react/forbid-prop-types': 'off', // airbnb use error
     'react/require-default-props': 'off', // airbnb use error, it's buggy
