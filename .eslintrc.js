@@ -87,7 +87,7 @@ module.exports = {
     // It would be better to enable this rule, but it might slow us down.
     'import/no-extraneous-dependencies': 'off',
     'import/namespace': ['error', { allowComputed: true }],
-    "import/prefer-default-export": off,
+    "import/prefer-default-export": 'off',
     'import/order': [
       'error',
       {
