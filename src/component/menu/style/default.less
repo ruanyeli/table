@@ -1,0 +1,182 @@
+@import "../../style/themes/default.less";
+
+.@{menu-prefix} {
+  color: @menu-text-color;
+  &-item{
+    line-height: 42px;
+    height: 42px;
+    font-size: @font-size-base;
+    padding: 0 16px;
+    position: relative;
+    cursor: pointer;
+    .tdicon{
+      margin-right: 8px;
+    }
+    a{
+      text-decoration: none;
+      display: block;
+      color: @menu-text-color;
+      &:before{
+        position: absolute;
+        background-color: transparent;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        content: "";
+      }
+    }
+    &:hover, &-selected{
+      color: @primary-color;
+      a{
+        color: @primary-color;
+      }
+    }
+    &-disabled{
+      color: @disabled-color;
+      cursor: not-allowed;
+      background: none;
+      border-color: transparent;
+      a{
+        color: @disabled-color;
+        cursor: not-allowed;
+        &:hover{
+          color: @disabled-color;
+        }
+      }
+      &:hover{
+        color: @disabled-color;
+      }
+      &:after{
+        display: none;
+      }
+    }
+  }
+  &-item-group{
+    &-title{
+      color: rgba(0,0,0,.43);
+      font-size: @font-size-base;
+      line-height: 1.5;
+      padding: 8px 16px;
+    }
+    .@{menu-prefix}-item{
+      padding-left: 24px;
+    }
+  }
+  &-submenu{
+    &-title{
+      padding: 0 16px;
+      height: 42px;
+      line-height: 42px;
+      position: relative;
+      font-size: @font-size-base;
+      cursor: pointer;
+      &:hover{
+        color: @primary-color;
+      }
+      .tdicon{
+        margin-right: 8px;
+      }
+    }
+    &-hidden{
+      display: none;
+    }
+  }
+}
+
+// dark theme
+.@{menu-prefix} {
+  &-dark,
+  &-dark &-sub,
+  &-dark&-vertical &-submenu .@{menu-prefix},
+  &-dark&-horizontal &-submenu .@{menu-prefix},
+  &-dark .@{menu-prefix} {
+    color: fade(#fff, 67%);
+    background: #404040;
+  }
+
+  &-dark &-inline&-sub {
+    background: #333;
+  }
+
+  &-dark&-horizontal {
+    border-bottom-color: #404040;
+  }
+
+  &-dark&-horizontal > &-item,
+  &-dark&-horizontal > &-submenu {
+    border-color: #404040;
+    border-bottom: 0;
+    top: 0;
+  }
+
+  &-dark &-item,
+  &-dark &-item-group-title,
+  &-dark &-item > a {
+    color: fade(#fff, 67%);
+  }
+
+  &-dark&-inline,
+  &-dark&-vertical {
+    border-right: 0;
+  }
+
+  &-dark&-inline &-item,
+  &-dark&-vertical &-item {
+    border-right: 0;
+    margin-left: 0;
+    left: 0;
+    &:after {
+      border-right: 0;
+    }
+  }
+
+  &-dark &-item:hover,
+  &-dark &-item-active,
+  &-dark &-submenu-active,
+  &-dark:not(&-inline) &-submenu-open,
+  &-dark &-submenu-selected,
+  &-dark &-submenu:hover,
+  &-dark &-submenu-title:hover {
+    background-color: transparent;
+    color: #fff;
+    > a {
+      color: #fff;
+    }
+  }
+
+  &-dark &-item-selected {
+    border-right: 0;
+    color: #fff;
+    &:after {
+      border-right: 0;
+    }
+    > a,
+    > a:hover {
+      color: #fff;
+    }
+  }
+
+  &&-dark &-item-selected {
+    background-color: transparent;
+  }
+
+  &-dark&-vertical &-submenu & &-item-selected,
+  &-dark&-inline &-item-selected {
+    background-color: @primary-color;
+  }
+
+  &-dark &-item-disabled,
+  &-dark &-submenu-disabled {
+    &,
+    > a {
+      opacity: 0.8;
+      color: @disabled-color-dark !important;
+    }
+    > .@{menu-prefix}-submenu-title {
+      color: @disabled-color-dark !important;
+    }
+  }
+}
