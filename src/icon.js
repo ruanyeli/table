@@ -313,7 +313,7 @@ const columns6 = [{
     text: 'xxx4',
     value: 'xxx4'
   }],
-  filterMultiple: false,
+  filterMultiple: true,
   onFilter: (value, record) => record.seqId.indexOf(value) === 0,
   sorter: (a, b) => a.seqId > b.seqId ? 1 : (a.seqId == b.seqId ? 0 : -1),
 }, {
@@ -332,7 +332,6 @@ const columns6 = [{
   key: 'occurTime',
   sorter: (a, b) => (new Date(a.occurTime).getTime()) - (new Date(b.occurTime).getTime())
 }];
-
 
 const renderContent = (value, row, index) => {
   const obj = {
@@ -548,16 +547,54 @@ const dataSource9 = [{
 
 // rowSelection objects indicates the need for row selection
 
+const columns10 = [{
+  title: 'Sequence ID',
+  dataIndex: 'seqId',
+  key: 'seqId',
+  filters: [{
+    text: '选中全部',
+    value: 'xxx1'
+  }, {
+    text: '选中奇数行',
+    value: 'xxx2'
+  }, {
+    text: '选中偶数行',
+    value: 'xxx3'
+  }],
+  filterMultiple: true,
+  onFilter: (value, record) => record.seqId.indexOf(value) === 0,
+}, {
+  title: '事件类型',
+  dataIndex: 'eventType',
+  key: 'eventType',
+  filters: Object.keys(eventTypes).map(key => ({
+    text: eventTypes[key],
+    value: key
+  })),
+  render: type => eventTypes[type],
+  onFilter: (value, record) => (record.eventType || eventTypes[record.eventType]).indexOf(value) === 0
+}, {
+  title: '发生时间',
+  dataIndex: 'occurTime',
+  key: 'occurTime',
+  sorter: (a, b) => (new Date(a.occurTime).getTime()) - (new Date(b.occurTime).getTime())
+}];
+
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
       value1: ["Tom", "Mac"],
-      value2: ["Mac"]
+      value2: ["Mac"],
+      selectedRowKeys: []
     };
   }
 
+  onSelectChange = (selectedRowKeys) => {
+    console.log('selectedRowKeys changed: ', selectedRowKeys);
+    this.setState({ selectedRowKeys });
+  }
   onCheckboxGroupChange1 = v => {
     console.log(v);
     this.setState({ value1: v })
@@ -567,9 +604,53 @@ class App extends Component {
     this.setState({ value2: v })
   }
 
+ 
+
   render() {
     const CheckboxGroup = Checkbox.CheckboxGroup;
     console.log('icon');
+    const { selectedRowKeys } = this.state;
+    const rowSelection1 = {
+      selectedRowKeys,
+      onChange: this.onSelectChange,
+      hideDefaultSelections: true,
+      selections: [{
+        key: 'all-data',
+        text: 'Select All Data',
+        onSelect: () => {
+          this.setState({
+            selectedRowKeys: [...Array(46).keys()], // 0...45
+          });
+        },
+      }, {
+        key: 'odd',
+        text: 'Select Odd Row',
+        onSelect: (changableRowKeys) => {
+          let newSelectedRowKeys = [];
+          newSelectedRowKeys = changableRowKeys.filter((key, index) => {
+            if (index % 2 !== 0) {
+              return false;
+            }
+            return true;
+          });
+          this.setState({ selectedRowKeys: newSelectedRowKeys });
+        },
+      }, {
+        key: 'even',
+        text: 'Select Even Row',
+        onSelect: (changableRowKeys) => {
+          let newSelectedRowKeys = [];
+          newSelectedRowKeys = changableRowKeys.filter((key, index) => {
+            if (index % 2 !== 0) {
+              return true;
+            }
+            return false;
+          });
+          this.setState({ selectedRowKeys: newSelectedRowKeys });
+        },
+      }],
+      onSelection: this.onSelection,
+    };
     return (
       <div className="App">
         <Icon type="link" />
@@ -629,7 +710,8 @@ class App extends Component {
         <Table columns={columns7} dataSource={dataSource7} bordered />
         <Table rowSelection={rowSelection} columns={columns8} dataSource={dataSource8} />
         <Table columns={columns9} rowSelection={rowSelection} dataSource={dataSource9} />
-
+        <Table columns={columns10} rowSelection={rowSelection1} dataSource={dataSource6} />
+        
       </div>
     );
   }
