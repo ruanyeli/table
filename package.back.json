@@ -1,0 +1,91 @@
+{
+  "name": "y-table",
+  "version": "0.0.1",
+  "description": "complex table react component",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --config jest.config.js",
+    "start": "node start.js"
+  },
+  "keywords": [
+    "component",
+    "table",
+    "react"
+  ],
+  "author": "yeli",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-jest": "^23.6.0",
+    "babel-preset-react-app": "7.0.0",
+    "case-sensitive-paths-webpack-plugin": "^2.1.2",
+    "chalk": "^2.4.1",
+    "cross-env": "^5.2.0",
+    "css-loader": "^2.0.0",
+    "enzyme": "^3.8.0",
+    "enzyme-adapter-react-16": "^1.7.1",
+    "eslint": "^5.10.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-config-react-app": "^3.0.5",
+    "eslint-loader": "^2.1.1",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.2",
+    "eslint-plugin-react": "^7.11.1",
+    "fork-ts-checker-webpack-plugin-alt": "^0.4.14",
+    "html-webpack-plugin": "^3.2.0",
+    "jest": "^23.6.0",
+    "jsdom": "^13.1.0",
+    "pnp-webpack-plugin": "^1.2.1",
+    "webpack": "^4.27.1",
+    "webpack-dev-server": "^3.1.10"
+  },
+  "dependencies": {
+    "@babel/core": "^7.2.0",
+    "add-dom-event-listener": "^1.1.0",
+    "autoprefixer": "^9.4.2",
+    "babel-eslint": "^10.0.1",
+    "babel-loader": "^8.0.4",
+    "babel-plugin-named-asset-import": "^0.2.3",
+    "classnames": "^2.2.6",
+    "component-classes": "^1.2.6",
+    "dom-closest": "^0.2.0",
+    "dom-scroll-into-view": "^1.2.1",
+    "eslint-plugin-flowtype": "^3.2.0",
+    "file-loader": "^2.0.0",
+    "less": "^3.9.0",
+    "less-loader": "^4.1.0",
+    "moment": "^2.23.0",
+    "object-assign": "^4.1.1",
+    "postcss-flexbugs-fixes": "^4.1.0",
+    "postcss-loader": "^3.0.0",
+    "promise": "^8.0.2",
+    "rc-trigger": "^2.6.2",
+    "react": "^16.6.3",
+    "react-dev-utils": "^5.0.2",
+    "react-dom": "^16.6.3",
+    "react-lazyload": "^2.3.0",
+    "react-resizable": "^1.7.5",
+    "shallowequal": "^1.1.0",
+    "style-loader": "^0.23.1",
+    "warning": "^4.0.2",
+    "whatwg-fetch": "^3.0.0"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ],
+  "babel": {
+    "presets": [
+      "react-app"
+    ],
+    "env": {
+      "test": {
+        "presets": ["react-app"]
+      }
+    }
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  }
+}

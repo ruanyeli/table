@@ -1,31 +1,29 @@
 module.exports = {
   verbose: true,
   setupFiles: [
-    './test/setup.js',
+    './config/jest/setup.js',
   ],
   moduleFileExtensions: [
     'js',
     'jsx',
   ],
-  // snapshotSerializers: ['enzyme-to-json/serializer'],
-  testMatch: ['**/__test__/**/*.js?(x)', 'src/__test__/?(*.)+(spec|test).js?(x)'],
+  snapshotSerializers: ['enzyme-to-json/serializer'],
+  testMatch: [
+    '<rootDir>/__test__/**/*.js?(x)',
+    '<rootDir>/__test__/?(*.)+(spec|test).js?(x)',
+  ],
+  testPathIgnorePatterns: [
+    '<rootDir>/__test__/coverage',
+  ],
   // transform: {
   //   '^.+\\.js$': 'babel-jest'
   // },
   transform: {
     // '^.+\\.js$': '<rootDir>/test/jest-transformer.js',
     '^.+\\.(js|jsx|ts|tsx)$': '<rootDir>/node_modules/babel-jest',
-    '^.+\\.(css|less)$': '<rootDir>/test/css-transformer.js',
-    '\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2)$': '<rootDir>/test/file-transformer.js',
+    '^.+\\.(css|less)$': '<rootDir>/config/jest/cssTransform.js',
+    '\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2)$': '<rootDir>/config/jest/fileTransform.js',
   },
-  collectCoverageFrom: [
-    'src/component/**/*.{ts,tsx,js}',
-    '!src/component/*/style/index.js',
-    '!src/component/style/index.js',
-    '!src/component/*/locale/index.js',
-    '!src/component/*/__tests__/**/type.js',
-    '!src/component/**/*/interface.{ts,js}',
-  ],
   transformIgnorePatterns: [
     '/dist/',
     '/lib/',
@@ -33,6 +31,16 @@ module.exports = {
     'node_modules/[^/]+?/(?!(es|node_modules)/)', // Ignore modules without es dir
     '^.+\\.module\\.(css|sass|scss|less)$',
   ],
+  collectCoverageFrom: [
+    'components/**/*.{ts,tsx,js}',
+    '!components/*/style/index.js',
+    '!components/style/index.js',
+    '!components/*/locale/index.js',
+    '!components/*/__tests__/**/type.js',
+    '!components/**/*/interface.{ts,js}',
+  ],
+  coverageDirectory: '__test__/coverage',
+  // coverageReporters: 'text',
   timers: 'fake',
 };
 

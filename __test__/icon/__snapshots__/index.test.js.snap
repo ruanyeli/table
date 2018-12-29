@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Icon /> classnames props should be used 1`] = `
+<i
+  className="y-icon y-icon-clock icon"
+/>
+`;
+
+exports[`<Icon /> loading icon should match snapshot 1`] = `
+<i
+  class="y-icon y-icon-loading"
+/>
+`;
+
+exports[`<Icon /> style props should be used 1`] = `
+<i
+  className="y-icon y-icon-clock"
+  style={
+    Object {
+      "color": "red",
+      "fontSize": "16px",
+    }
+  }
+/>
+`;

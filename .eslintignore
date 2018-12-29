@@ -1,0 +1,15 @@
+# components/**/*.js
+# components/**/*.jsx
+!__test__/**/*.test.js
+!components/*/demo/*
+.*.js
+
+# Docs templates
+site/theme/template/IconDisplay/*.js
+site/theme/template/IconDisplay/*.jsx
+
+# eslint 忽略 config 文件
+config/*
+
+# 忽略 scripts
+scripts/*
