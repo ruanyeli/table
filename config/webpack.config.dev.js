@@ -198,6 +198,10 @@ module.exports = {
                 options: { importLoaders: 2 },
               },
               require.resolve('less-loader'),
+              {
+                loader: require.resolve('less-loader'),
+                options:{ javascriptEnabled: true,}
+              } 
             ],
           },
           // "file" loader makes sure those assets get served by WebpackDevServer.
@@ -215,6 +219,7 @@ module.exports = {
             options: {
               name: 'static/media/[name].[hash:8].[ext]',
             },
+            
           },
         ],
       },
