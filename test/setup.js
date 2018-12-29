@@ -1,4 +1,4 @@
-import 'babel-polyfill';
+// import 'babel-polyfill';
 /* eslint-disable global-require */
 if (typeof window !== 'undefined') {
   global.window.resizeTo = (width, height) => {
@@ -18,7 +18,7 @@ global.requestAnimationFrame = function (cb) {
 global.cancelAnimationFrame = function (cb) {
   return clearTimeout(cb, 0);
 };
-const createDOM = require('./createDOM');
+// const createDOM = require('./createDOM');
 const Enzyme = require('enzyme');
 
 let Adapter;
@@ -29,6 +29,6 @@ let Adapter;
 // }
 Adapter = require('enzyme-adapter-react-16');
 
-createDOM();
+// createDOM();
 
 Enzyme.configure({ adapter: new Adapter() });
