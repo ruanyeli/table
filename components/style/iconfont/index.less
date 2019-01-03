@@ -1,0 +1,258 @@
+@import "./variables.less";
+@import "./motion.less";
+
+@tdicon-font-path: "/fonts/";
+
+@font-face {
+  font-family: "tdicon";
+  src: url('@{tdicon-font-path}.ttf');
+    //  url('Sansation_Light.eot'); /* IE9 */
+  font-weight: normal;
+  font-style: normal;
+}
+
+.tdicon {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'tdicon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.tdicon-clock:before { content: "\e921"; }
+
+.tdicon-forbidden:before { content: "\e620"; }
+
+.tdicon-sort:before { content: "\e621"; }
+
+.tdicon-zoomin:before { content: "\e622"; }
+
+.tdicon-subscribe:before { content: "\e623"; }
+
+.tdicon-log:before { content: "\e624"; }
+
+.tdicon-file:before { content: "\e625"; }
+
+.tdicon-message:before { content: "\e627"; }
+
+.tdicon-import:before { content: "\e629"; }
+
+.tdicon-export:before { content: "\e62a"; }
+
+.tdicon-upload:before { content: "\e626"; }
+
+.tdicon-download:before { content: "\e628"; }
+
+.tdicon-edit:before { content: "\e62b"; }
+
+.tdicon-delete:before { content: "\e62c"; }
+
+.tdicon-setting:before { content: "\e62d"; }
+
+.tdicon-like:before { content: "\e62e"; }
+
+.tdicon-store:before { content: "\e62f"; }
+
+.tdicon-calendar:before { content: "\e630"; }
+
+.tdicon-plus:before { content: "\e631"; }
+
+.tdicon-flow:before { content: "\e632"; }
+
+.tdicon-output:before { content: "\e633"; }
+
+.tdicon-tupian:before { content: "\e634"; }
+
+.tdicon-flag:before { content: "\e635"; }
+
+.tdicon-search:before { content: "\e636"; }
+
+.tdicon-biaoqian:before { content: "\e637"; }
+
+.tdicon-fenxiang:before { content: "\e638"; }
+
+.tdicon-angle-double-down:before { content: "\e63c"; }
+
+.tdicon-angle-double-right:before { content: "\e63d"; }
+
+.tdicon-angle-double-left:before { content: "\e63e"; }
+
+.tdicon-angle-double-up:before { content: "\e63f"; }
+
+.tdicon-unfold:before { content: "\e640"; }
+
+.tdicon-enter:before { content: "\e641"; }
+
+.tdicon-return:before { content: "\e642"; }
+
+.tdicon-packup:before { content: "\e643"; }
+
+.tdicon-arrow-circle-left:before { content: "\e644"; }
+
+.tdicon-arrow-circle-down:before { content: "\e645"; }
+
+.tdicon-arrow-circle-o-down:before { content: "\e646"; }
+
+.tdicon-arrow-circle-o-right:before { content: "\e647"; }
+
+.tdicon-arrow-circle-o-up:before { content: "\e648"; }
+
+.tdicon-arrow-circle-o-left:before { content: "\e649"; }
+
+.tdicon-arrow-circle-right:before { content: "\e64a"; }
+
+.tdicon-arrow-down:before { content: "\e64b"; }
+
+.tdicon-arrow-circle-up:before { content: "\e64c"; }
+
+.tdicon-arrow-right:before { content: "\e64d"; }
+
+.tdicon-arrow-left:before { content: "\e64e"; }
+
+.tdicon-arrow-square-down:before { content: "\e64f"; }
+
+.tdicon-arrow-square-o-down:before { content: "\e650"; }
+
+.tdicon-arrow-square-left:before { content: "\e651"; }
+
+.tdicon-arrow-square-o-left:before { content: "\e652"; }
+
+.tdicon-arrow-square-o-right:before { content: "\e653"; }
+
+.tdicon-triangle-down:before { content: "\e654"; }
+
+.tdicon-triangle-left:before { content: "\e655"; }
+
+.tdicon-arrow-up:before { content: "\e656"; }
+
+.tdicon-arrow-square-right:before { content: "\e657"; }
+
+.tdicon-arrow-square-up:before { content: "\e658"; }
+
+.tdicon-arrow-square-o-up:before { content: "\e659"; }
+
+.tdicon-triangle-up:before { content: "\e65a"; }
+
+.tdicon-triangle-right:before { content: "\e65b"; }
+
+.tdicon-fold:before { content: "\e65c"; }
+
+.tdicon-unfold1:before { content: "\e65d"; }
+
+.tdicon-fullscreen:before { content: "\e65e"; }
+
+.tdicon-top:before { content: "\e65f"; }
+
+.tdicon-narrow:before { content: "\e660"; }
+
+.tdicon-arrow-v:before { content: "\e661"; }
+
+.tdicon-down:before { content: "\e662"; }
+
+.tdicon-arrow-h:before { content: "\e663"; }
+
+.tdicon-accessory:before { content: "\e639"; }
+
+.tdicon-bars:before { content: "\e63a"; }
+
+.tdicon-screening:before { content: "\e63b"; }
+
+.tdicon-select-square:before { content: "\e664"; }
+
+.tdicon-close-circle-o:before { content: "\e665"; }
+
+.tdicon-check-circle-o:before { content: "\e666"; }
+
+.tdicon-check-circle:before { content: "\e667"; }
+
+.tdicon-check:before { content: "\e668"; }
+
+.tdicon-check-square-o:before { content: "\e669"; }
+
+.tdicon-cross-circle:before { content: "\e66a"; }
+
+.tdicon-cross:before { content: "\e66b"; }
+
+.tdicon-close-square-o:before { content: "\e66c"; }
+
+.tdicon-close-square:before { content: "\e66d"; }
+
+.tdicon-exclamation-circle-o:before { content: "\e66e"; }
+
+.tdicon-exclamation-circle:before { content: "\e66f"; }
+
+.tdicon-info-circle:before { content: "\e670"; }
+
+.tdicon-exclamation:before { content: "\e671"; }
+
+.tdicon-exclamation-square:before { content: "\e672"; }
+
+.tdicon-exclamation-square-o:before { content: "\e673"; }
+
+.tdicon-info-square-o:before { content: "\e674"; }
+
+.tdicon-info-circle-o:before { content: "\e675"; }
+
+.tdicon-info-square:before { content: "\e676"; }
+
+.tdicon-minus-square:before { content: "\e677"; }
+
+.tdicon-minus-circle-o:before { content: "\e678"; }
+
+.tdicon-info:before { content: "\e679"; }
+
+.tdicon-minus-circle:before { content: "\e67a"; }
+
+.tdicon-minus-square-o:before { content: "\e67b"; }
+
+.tdicon-minus:before { content: "\e67c"; }
+
+.tdicon-plus-square-o:before { content: "\e67d"; }
+
+.tdicon-plus-circle-o:before { content: "\e67e"; }
+
+.tdicon-plus1:before { content: "\e67f"; }
+
+.tdicon-plus-square:before { content: "\e680"; }
+
+.tdicon-plus-circle:before { content: "\e681"; }
+
+.tdicon-quesion-circle:before { content: "\e682"; }
+
+.tdicon-question:before { content: "\e683"; }
+
+.tdicon-question-square:before { content: "\e684"; }
+
+.tdicon-question-square-o:before { content: "\e685"; }
+
+.tdicon-question-circle-o:before { content: "\e686"; }
+
+.tdicon-new-group:before { content: "\e687"; }
+
+.tdicon-template:before { content: "\e688"; }
+
+.tdicon-copy-paste:before { content: "\e689"; }
+
+.tdicon-foreach:before { content: "\e68a"; }
+
+.tdicon-rule:before { content: "\e68b"; }
+
+.tdicon-index:before { content: "\e68c"; }
+
+.tdicon-logout:before { content: "\e68d"; }
+
+.tdicon-login:before { content: "\e68e"; }
+
+.tdicon-refresh:before { content: "\e68f"; }
+
+.tdicon-loading:before { content: "\e690"; }
+
+.tdicon-more:before { content: "\e691"; }
+
+.tdicon-test:before { content: "\e692"; }
+
