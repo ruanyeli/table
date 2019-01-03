@@ -27,6 +27,7 @@
     "rc-trigger": "^2.6.2",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
+    "react-highlight-words": "^0.15.1",
     "react-lazyload": "^2.3.0",
     "warning": "^4.0.2"
   },
