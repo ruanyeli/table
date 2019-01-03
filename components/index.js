@@ -1,6 +1,8 @@
 
 export { default as Icon } from './icon';
 
-// export { default as Table } from './table';
+export { default as Radio } from './radio';
 
-// export { default } from './table';
+export { default as Table } from './table';
+
+
