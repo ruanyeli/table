@@ -1,11 +1,3 @@
-/**
- * @Author: Zhengfeng.Yao <yzf>
- * @Date:   2017-07-03 09:55:17
- * @Last modified by:   yzf
- * @Last modified time: 2017-07-03 09:55:21
- *
- * a fork of rc-table
- */
 
 import React from 'react';
 import PropTypes from 'prop-types';
@@ -17,6 +9,7 @@ import addEventListener from '../../util/addEventListener';
 import ColumnManager from './ColumnManager';
 import createStore from './createStore';
 import classes from 'component-classes';
+
 
 export default class Table extends React.Component {
   static propTypes = {
@@ -78,7 +71,7 @@ export default class Table extends React.Component {
     rowRef: () => null,
     getBodyWrapper: body => body,
     emptyText: () => 'No Data',
-    size: 'default'
+    size: 'default',
   }
 
   constructor(props) {
@@ -201,7 +194,8 @@ export default class Table extends React.Component {
   }
 
   getExpandedRows() {
-    return this.props.expandedRowKeys || this.state.expandedRowKeys;
+    return this.props.expandedRowKeys
+      || this.state.expandedRowKeys;
   }
 
   getHeader(columns, fixed) {
@@ -212,7 +206,7 @@ export default class Table extends React.Component {
         key: 'rc-table-expandIconAsCell',
         className: `${prefixCls}-expand-icon-th`,
         title: '',
-        rowSpan: rows.length
+        rowSpan: rows.length,
       });
     }
 
@@ -231,7 +225,7 @@ export default class Table extends React.Component {
     rows = rows || [];
     rows[currentRow] = rows[currentRow] || [];
 
-    columns.forEach(column => {
+    columns.forEach((column) => {
       if (column.rowSpan && rows.length < column.rowSpan) {
         while (rows.length < column.rowSpan) {
           rows.push([]);
@@ -274,15 +268,15 @@ export default class Table extends React.Component {
       key: 'extra-row',
       render: () => ({
         props: {
-          colSpan: colCount
+          colSpan: colCount,
         },
-        children: fixed !== 'right' ? content : '&nbsp;'
-      })
+        children: fixed !== 'right' ? content : '&nbsp;',
+      }),
     }];
     if (expandIconAsCell && fixed !== 'right') {
       columns.unshift({
         key: 'expand-icon-placeholder',
-        render: () => null
+        render: () => null,
       });
     }
     return (
@@ -324,7 +318,7 @@ export default class Table extends React.Component {
       size,
       lazyload,
       lazyloadHeight,
-      scroll
+      scroll,
     } = props;
     const { fixedColumnsBodyRowsHeight } = this.state;
     let rst = [];
@@ -400,12 +394,12 @@ export default class Table extends React.Component {
 
       if (expandedRowContent && isRowExpanded) {
         rst.push(this.getExpandedRow(
-          key, expandedRowContent, subVisible, expandedRowClassName(record, i, indent), fixed
+          key, expandedRowContent, subVisible, expandedRowClassName(record, i, indent), fixed,
         ));
       }
       if (childrenColumn) {
         rst = rst.concat(this.getRowsByData(
-          childrenColumn, subVisible, indent + 1, columns, fixed
+          childrenColumn, subVisible, indent + 1, columns, fixed,
         ));
       }
     }
@@ -434,7 +428,7 @@ export default class Table extends React.Component {
     } else {
       leafColumns = this.columnManager.leafColumns();
     }
-    cols = cols.concat(leafColumns.map(c => {
+    cols = cols.concat(leafColumns.map((c) => {
       return <col key={c.key} style={{ width: c.width, minWidth: c.width }} />;
     }));
     return <colgroup>{cols}</colgroup>;
@@ -443,20 +437,22 @@ export default class Table extends React.Component {
   getLeftFixedTable() {
     return this.getTable({
       columns: this.columnManager.leftColumns(),
-      fixed: 'left'
+      fixed: 'left',
     });
   }
 
   getRightFixedTable() {
     return this.getTable({
       columns: this.columnManager.rightColumns(),
-      fixed: 'right'
+      fixed: 'right',
     });
   }
 
   getTable(options = {}) {
     const { columns, fixed } = options;
-    const { prefixCls, scroll = {}, getBodyWrapper, showHeader } = this.props;
+    const {
+      prefixCls, scroll = {}, getBodyWrapper, showHeader,
+    } = this.props;
     let { useFixedHeader } = this.props;
     const bodyStyle = { ...this.props.bodyStyle };
     const headStyle = {};
@@ -537,9 +533,9 @@ export default class Table extends React.Component {
         className={`${prefixCls}-body`}
         style={bodyStyle}
         ref={bodyTable => this.bodyTable = bodyTable}
-        onMouseOver={this.detectScrollTarget}
         onTouchStart={this.detectScrollTarget}
         onScroll={this.handleBodyScroll}
+        onMouseOver={this.detectScrollTarget}
       >
         {renderTable(!useFixedHeader)}
       </div>
@@ -770,7 +766,7 @@ export default class Table extends React.Component {
     const content = [
       this.getTable({ columns: this.columnManager.groupedColumns() }),
       this.getEmptyText(),
-      this.getFooter()
+      this.getFooter(),
     ];
 
     const scrollTable = isTableScroll
@@ -782,14 +778,20 @@ export default class Table extends React.Component {
         {this.getTitle()}
         <div className={`${prefixCls}-content`}>
           {scrollTable}
-          {this.columnManager.isAnyColumnsLeftFixed() &&
-          <div className={`${prefixCls}-fixed-left`}>
-            {this.getLeftFixedTable()}
-          </div>}
-          {this.columnManager.isAnyColumnsRightFixed() &&
-          <div className={`${prefixCls}-fixed-right`}>
-            {this.getRightFixedTable()}
-          </div>}
+          {this.columnManager.isAnyColumnsLeftFixed()
+            && (
+              <div className={`${prefixCls}-fixed-left`}>
+                {this.getLeftFixedTable()}
+              </div>
+            )
+          }
+          {this.columnManager.isAnyColumnsRightFixed()
+            && (
+              <div className={`${prefixCls}-fixed-right`}>
+                {this.getRightFixedTable()}
+              </div>
+            )
+          }
         </div>
       </div>
     );

@@ -25,10 +25,10 @@ const FilterDropdownMenuWrapper = props => (
 export default class FilterMenu extends React.Component {
   static defaultProps = {
     handleFilter() {},
-    column: {}
+    column: {},
   };
 
-  constructor(props){
+  constructor(props) {
     super(props);
     const visible = ('filterDropdownVisible' in props.column) ? props.column.filterDropdownVisible : false;
     this.state = {

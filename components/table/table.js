@@ -1,10 +1,3 @@
-/**
- * @Author: Zhengfeng.Yao <yzf>
- * @Date:   2017-07-03 14:20:48
- * @Last modified by:   yzf
- * @Last modified time: 2017-07-03 14:20:51
- */
-
 import React from 'react';
 import { findDOMNode } from 'react-dom';
 import BaseTable, { Column, ColumnGroup } from './base';

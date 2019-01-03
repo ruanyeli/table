@@ -19,6 +19,7 @@
     "add-dom-event-listener": "^1.1.0",
     "classnames": "^2.2.6",
     "dom-closest": "^0.2.0",
+    "dom-scroll-into-view": "^1.2.1",
     "less": "^3.9.0",
     "less-loader": "^4.1.0",
     "lodash": "^4.17.11",
@@ -26,6 +27,7 @@
     "rc-trigger": "^2.6.2",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
+    "react-lazyload": "^2.3.0",
     "warning": "^4.0.2"
   },
   "devDependencies": {
