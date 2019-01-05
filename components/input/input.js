@@ -1,10 +1,3 @@
-/**
- * @Author: ginalu <ljq>
- * @Date:   2017-05-25 15:03:32
- * @Last modified by:   ljq
- * @Last modified time: 2017-05-25 15:03:32
- */
-
 import React, { Component, cloneElement } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
@@ -28,12 +21,14 @@ function fixControlledValue(value) {
 
 export default class Input extends Component {
   static Group;
+
   static Search;
+
   static defaultProps = {
     disabled: false,
     prefixCls: s.inputPrefix,
     type: 'text',
-    placeholder: ''
+    placeholder: '',
   }
 
   static propTypes = {
@@ -53,7 +48,7 @@ export default class Input extends Component {
     onPressEnter: PropTypes.func
   }
 
-  handleKeyDown = e => {
+  handleKeyDown = (e) => {
     const { onPressEnter, onKeyDown } = this.props;
     if (e.keyCode === 13 && onPressEnter) {
       onPressEnter(e);
@@ -61,6 +56,18 @@ export default class Input extends Component {
     if (onKeyDown) {
       onKeyDown(e);
     }
+  }
+
+  saveInputRef = node => this.input = node;
+
+  focus = (e) => {
+    this.input.focus(e);
+    this.props.focus && this.props.focus(e);
+  }
+
+  blur = (e) => {
+    this.input.blur(e);
+    this.props.blur && this.props.blur(e);
   }
 
   renderLabeledInput(children) {
@@ -73,13 +80,23 @@ export default class Input extends Component {
       [`${wrapperClassName}-addon-lg`]: props.size === 'large',
       [`${wrapperClassName}-addon-sm`]: props.size === 'small'
     });
-    const addonBefore = props.addonBefore ? (<span className={addonClassName}>{props.addonBefore}</span>) : null;
-    const addonAfter = props.addonAfter ? (<span className={addonClassName}>{props.addonAfter}</span>) : null;
+    const addonBefore = props.addonBefore ? (
+      <span className={addonClassName}>{props.addonBefore}</span>
+    ) : null;
+    const addonAfter = props.addonAfter ? (
+      <span className={addonClassName}>{props.addonAfter}</span>
+    ) : null;
     // const className = cn({
     //   [`${props.prefixCls}-wrapper`]: true,
     //   [wrapperClassName]: (addonBefore || addonAfter)
     // });
-    return (<span className={wrapperClassName}>{addonBefore}{children}{addonAfter}</span>);
+    return (
+      <span className={wrapperClassName}>
+        {addonBefore}
+        {children}
+        {addonAfter}
+      </span>
+    );
   }
 
   renderLabeledIcon(children) {
@@ -98,28 +115,16 @@ export default class Input extends Component {
     );
   }
 
-  focus = e => {
-    this.input.focus(e);
-    this.props.focus && this.props.focus(e);
-  }
-
-  blur = e => {
-    this.input.blur(e);
-    this.props.blur && this.props.blur(e);
-  }
-
-  saveInputRef = node => this.input = node;
-
   renderInput() {
     const props = Object.assign({}, this.props);
     const otherProps = omit(this.props, ['prefixCls', 'onPressEnter', 'addonBefore', 'addonAfter', 'prefix', 'suffix']);
-    const prefixCls = props.prefixCls;
+    const { prefixCls } = props;
     if (!props.type) {
       return props.children;
     }
     const inputClassName = cn(prefixCls, {
       [`${prefixCls}-sm`]: props.size === 'small',
-      [`${prefixCls}-lg`]: props.size === 'large'
+      [`${prefixCls}-lg`]: props.size === 'large',
     }, props.className);
     if ('value' in props) {
       otherProps.value = fixControlledValue(props.value);
@@ -131,7 +136,7 @@ export default class Input extends Component {
         className={inputClassName}
         ref={this.saveInputRef}
         onKeyDown={this.handleKeyDown}
-      />
+      />,
     );
   }
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 // import './index.css';
-import { TableExample } from './example/index';
+import Example from './example';
 
-ReactDOM.render(<TableExample />,document.getElementById('root'));
+ReactDOM.render(<Example />, document.getElementById('root'));

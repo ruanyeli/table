@@ -1,9 +1,14 @@
 @y-prefix                     : y;  // 组件统一样式前缀
 @icon-prefix                  : ~"@{y-prefix}-icon"; // icon 样式前缀
 @radio-prefix                 : ~"@{y-prefix}-radio"; // radio 样式前缀
+@loading-prefix               : ~"@{y-prefix}-loading"; // loading 样式前缀
 
 // 导出样式前缀，在js文件中使用
 :export {
   iconPrefix: @icon-prefix;
   radioPrefix: @radio-prefix;
+  loadingPrefix: @loading-prefix;
 }
+
+// Color
+@primary-color                :#2ea5ff;
