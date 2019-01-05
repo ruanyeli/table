@@ -2,13 +2,14 @@
 // export { default as TableExample } from './table';
 
 import React from 'react';
-import LoadingExample from './loading';
+// import LoadingExample from './loading';
+import TableExample from './table';
 
 export default class index extends React.Component {
   render() {
     return (
       <div>
-        <LoadingExample />
+        <TableExample />
       </div>
     );
   }

@@ -1,26 +1,26 @@
 import React, { Component } from 'react';
 import Table from '../../components/table';
-import Input from '../../components/input';
-import Button from '../../components/button';
-import Icon from '../../components/icon';
-import Highlighter from 'react-highlight-words';
 
 const data = [{
+  id: '111',
   key: '1',
   name: 'John Brown',
   age: 32,
   address: 'New York No. 1 Lake Park',
 }, {
+  id: '112',
   key: '2',
   name: 'Joe Black',
   age: 42,
   address: 'London No. 1 Lake Park',
 }, {
+  id: '113',
   key: '3',
   name: 'Jim Green',
   age: 32,
   address: 'Sidney No. 1 Lake Park',
 }, {
+  id: '114',
   key: '4',
   name: 'Jim Red',
   age: 32,
@@ -28,74 +28,9 @@ const data = [{
 }];
 
 export default class TableExample extends Component {
-  state = {
-    searchText: '',
-  };
-
-  getColumnSearchProps = (dataIndex) => {
-    return ({
-      filterDropdown: ({
-        setSelectedKeys, selectedKeys, confirm, clearFilters,
-      }) => (
-          <div className="custom-filter-dropdown">
-            <Input
-              ref={(node) => { this.searchInput = node; }}
-              placeholder={`Search ${dataIndex}`}
-              value={selectedKeys[0]}
-              onChange={e => setSelectedKeys(e.target.value ? [e.target.value] : [])}
-              onPressEnter={() => this.handleSearch(selectedKeys, confirm)}
-              style={{ width: 188, marginBottom: 8, display: 'block' }}
-            />
-            <Button
-              type="primary"
-              onClick={() => this.handleSearch(selectedKeys, confirm)}
-              icon="search"
-              size="small"
-              style={{ width: 90, marginRight: 8 }}
-            >
-              Search
-            </Button>
-            <Button
-              onClick={() => this.handleReset(clearFilters)}
-              size="small"
-              style={{ width: 90 }}
-            >
-              Reset
-            </Button>
-          </div>
-      ),
-      filterIcon: filtered => <Icon type="search" style={{ color: filtered ? '#1890ff' : undefined }} />,
-      onFilter: (value, record) => {
-        return record[dataIndex].toString().toLowerCase().includes(value.toLowerCase());
-      },
-      onFilterDropdownVisibleChange: (visible) => {
-        if (visible) {
-          setTimeout(() => this.searchInput.select());
-        }
-      },
-      render: (text) => {
-        const { searchText } = this.state;
-        return (
-          <Highlighter
-            highlightStyle={{ backgroundColor: '#ffc069', padding: 0 }}
-            searchWords={[searchText]}
-            autoEscape
-            textToHighlight={text.toString()}
-          />
-        );
-      },
-    });
-  }
-
-  handleSearch = (selectedKeys, confirm) => {
-    confirm();
-    this.setState({ searchText: selectedKeys[0] });
-  }
-
-  handleReset = (clearFilters) => {
-    clearFilters();
-    this.setState({ searchText: '' });
-  }
+  // state = {
+  //   searchText: '',
+  // };
 
   render() {
     const columns = [{
@@ -103,22 +38,19 @@ export default class TableExample extends Component {
       dataIndex: 'name',
       key: 'name',
       width: '30%',
-      ...this.getColumnSearchProps('name'),
     }, {
       title: 'Age',
       dataIndex: 'age',
       key: 'age',
       width: '20%',
-      ...this.getColumnSearchProps('age'),
     }, {
       title: 'Address',
       dataIndex: 'address',
       key: 'address',
-      ...this.getColumnSearchProps('address'),
     }];
     return (
       <div>
-        <Table columns={columns} dataSource={data} />
+        <Table columns={columns} dataSource={data} rowKey="id" />
       </div>
     );
   }

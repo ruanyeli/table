@@ -1,6 +1,7 @@
 import React from 'react';
 import { shallow, render, mount } from 'enzyme';
-import Loading from '../../components/loading'
+import Loading from '../../components/loading';
+
 const prefixLoad = 'y-loading';
 
 describe('<Loading loading />', () => {
@@ -9,32 +10,6 @@ describe('<Loading loading />', () => {
     expect(wrapper.find('.y-loading-container')).toHaveLength(1);
     expect(wrapper.find('.y-loading-container-graph').children()).toHaveLength(8); // 8个div 组成 loading
   });
-  /* it('should render to a loading icon', () => {
-    const wrapper = mount(<Icon type="loading" />);
-    expect(wrapper.find('i')).toHaveLength(1);
-
-    expect(wrapper.find('.y-icon')).toHaveLength(1);
-    expect(wrapper.find('.y-icon-loading')).toHaveLength(1);
-  });
-
-  it('loading icon should match snapshot', () => {
-    const wrapper = render(<Icon type="loading" />);
-    expect(wrapper).toMatchSnapshot();
-  });
-
-  it('style props should be used', () => {
-    const wrapper = shallow(<Icon type="clock" style={{ fontSize: '16px', color: 'red' }} />);
-    // console.log('style', wrapper.debug(), typeof wrapper.props().style.color);
-    expect(wrapper.prop('style').color).toEqual('red');
-    expect(wrapper.prop('style')).toEqual({ fontSize: '16px', color: 'red' });
-    expect(wrapper).toMatchSnapshot();
-  });
-
-  it('classnames props should be used', () => {
-    const wrapper = shallow(<Icon type="clock" className="icon" />);
-    expect(wrapper.hasClass('icon')).toBeTruthy();
-    expect(wrapper).toMatchSnapshot();
-  }); */
 });
 
 describe('<Loading />loading props', () => {
@@ -71,21 +46,21 @@ describe('<Loading />text props', () => {
     const text = '加载中...';
     const wrapper = mount(<Loading text={text} loading prefixLoad={prefixLoad} />);
     expect(wrapper.prop('text')).toStrictEqual(text);
-    // expect(wrapper.find('.y-loading-container-graph').hasClass('loading-large')).toStrictEqual(true);
   });
 });
 
 describe('<Loading />childern props', () => {
   it('render loading with childern ', () => {
-    const text = '加载中...';
     const wrapper = render(
       <Loading text="加载中" loading prefixLoad={prefixLoad}>
-        <div style={{ padding: 50, textAlign: 'center', border: "1px solid #000" }}>
+        <div style={{ padding: 50, textAlign: 'center', border: '1px solid #000' }}>
           loading Content
-      </div>
-      </Loading>);
+        </div>
+      </Loading>,
+    );
     // expect(wrapper.find(`${prefixLoad}-content`).children()).to.have.lengthOf(items.length);
+    // console.log('aaa', wrapper.find(`${prefixLoad}-content`));
+
     expect(wrapper.find(`${prefixLoad}-content`).matchesElement(<div>loading Content</div>)).to.equal(true);
   });
 });
-
