@@ -25,7 +25,7 @@ const SIZING_STYLE = [
   'padding-right',
   'border-width',
   'box-sizing',
-  'word-break'
+  'word-break',
 ];
 let hiddenTextarea;
 
@@ -49,7 +49,7 @@ function calculateNodeStyling(node) {
     sizingStyle,
     paddingSize,
     borderSize,
-    boxSizing
+    boxSizing,
   };
   return nodeInfo;
 }
@@ -61,7 +61,8 @@ export default function calculateNodeHeight(node, minRows, maxRows) {
   }
 
   let { paddingSize, sizingStyle, borderSize, boxSizing } = calculateNodeStyling(node);
-  let minHeight, maxHeight;
+  let minHeight;
+  let maxHeight;
   let overflowY = '';
   hiddenTextarea.value = node.value || node.placeholder || '';
   hiddenTextarea.setAttribute('style', `${sizingStyle};${HIDDEN_TEXTAREA_STYLE}`);

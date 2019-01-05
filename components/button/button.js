@@ -1,10 +1,3 @@
-/**
- * @Author: Zhengfeng.Yao <yzf>
- * @Date:   2017-05-22 11:41:32
- * @Last modified by:   yzf
- * @Last modified time: 2017-05-22 11:41:34
- */
-
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
@@ -17,13 +10,18 @@ import Group from './buttonGroup';
 const TWO_CN_REX = /^[\u4e00-\u9fa5]{2}$/;
 
 // 如果是两个中文字符，则在中间插入一个空格
-function insertSpace(child, needInserted){
+function insertSpace(child, needInserted) {
   if (is.nil(child)) {
-    return;
+    return null;
   }
   const SPACE = needInserted ? ' ' : '';
-  if (!is.String(child) && !is.Number(child) && is.String(child.type) && TWO_CN_REX.test(child.props.children)) {
-    return React.cloneElement(child, {}, child.props.children.split('').join(SPACE));
+  if (!is.String(child) && !is.Number(child) && is.String(child.type)
+   && TWO_CN_REX.test(child.props.children)) {
+    return React.cloneElement(
+      child,
+      {},
+      child.props.children.split('').join(SPACE),
+    );
   }
   if (is.String(child)) {
     if (TWO_CN_REX.test(child)) {
@@ -36,45 +34,56 @@ function insertSpace(child, needInserted){
 
 export default class Button extends Component {
   static Group = Group
+
   static defaultProps = {
+    clicked: false,
     prefixCls: s.btnPrefix,
     loading: false,
-    clicked: false
+    className: '',
+    htmlType: 'button',
+    size: 'default',
+    style: {},
   }
 
   static propTypes = {
-    type: PropTypes.string,
-    size: PropTypes.oneOf(['large', 'default', 'small']),
-    htmlType: PropTypes.oneOf(['submit', 'button', 'reset']),
-    onClick: PropTypes.func,
-    loading: PropTypes.oneOfType([PropTypes.bool, PropTypes.object]),
     className: PropTypes.string,
-    style: PropTypes.object
+    clicked: PropTypes.bool,
+    htmlType: PropTypes.oneOf(['submit', 'button', 'reset']),
+    loading: PropTypes.oneOfType([PropTypes.bool, PropTypes.object]),
+    onClick: PropTypes.func,
+    prefixCls: PropTypes.string,
+    size: PropTypes.oneOf(['large', 'default', 'small']),
+    style: PropTypes.object,
+    type: PropTypes.string,
   }
 
   constructor(props) {
     super(props);
     this.state = {
-      loading: !!props.loading
+      loading: !!props.loading,
     };
   }
 
   componentWillReceiveProps(nextProps) {
     if ('loading' in nextProps) {
       this.setState({
-        loading: !!nextProps.loading
-      })
+        loading: !!nextProps.loading,
+      });
     }
   }
 
-  handleClick = e => {
+  componentWillUnmount() {
+    clearTimeout(this.timeout);
+  }
+
+  handleClick = (e) => {
     const { loading } = this.state;
     if (!loading) {
       this.setState({ clicked: true });
       clearTimeout(this.timeout);
       this.timeout = setTimeout(() => this.setState({ clicked: false }), 500);
 
-      const onClick = this.props.onClick;
+      const { onClick } = this.props;
       if (onClick) {
         onClick(e);
       }
@@ -83,11 +92,7 @@ export default class Button extends Component {
     }
   }
 
-  componentWillUnmount() {
-    clearTimeout(this.timeout);
-  }
-
-  handleMouseUp = e => {
+  handleMouseUp = (e) => {
     if (this.props.onMouseUp) {
       this.props.onMouseUp(e);
     }
@@ -95,7 +100,7 @@ export default class Button extends Component {
 
   render() {
     const {
-      type, size = '', className, style, htmlType, children, icon, prefixCls, ...others
+      type, size = '', className, style, htmlType = 'button', children, icon, prefixCls, ...others
     } = this.props;
 
     const { loading, clicked } = this.state;
@@ -119,7 +124,7 @@ export default class Button extends Component {
       [`${prefixCls}-${type}`]: type,
       [`${prefixCls}-${sizeCls}`]: sizeCls,
       [`${prefixCls}-loading`]: loading,
-      [`${prefixCls}-clicked`]: clicked
+      [`${prefixCls}-clicked`]: clicked,
     }, className);
 
     const iconType = loading ? 'loading' : icon;
@@ -135,7 +140,8 @@ export default class Button extends Component {
         onMouseUp={this.handleMouseUp}
         onClick={this.handleClick}
       >
-        {iconNode}{kids}
+        {iconNode}
+        {kids}
       </button>
     );
   }

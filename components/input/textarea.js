@@ -25,14 +25,14 @@ export default class Textarea extends Component {
     disabled: false,
     prefixCls: s.inputPrefix,
     placeholder: '',
-    autoSize: false
+    autoSize: false,
   }
 
   static propTypes = {
     id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     disabled: PropTypes.bool,
     value: PropTypes.any,
-    defaultValue: PropTypes.any,
+    defaultValue: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     className: PropTypes.string,
     prefixCls: PropTypes.string,
     onKeyDown: PropTypes.func,
@@ -40,15 +40,18 @@ export default class Textarea extends Component {
     placeholder: PropTypes.string,
     autoSize: PropTypes.oneOfType([PropTypes.bool, PropTypes.object])
   }
+
   constructor(props) {
     super(props);
     this.state = {
-      textareaStyle: null
-    }
+      textareaStyle: null,
+    };
   }
+
   componentDidMount() {
     this.resizeTextarea();
   }
+
   componentWillReceiveProps(nextProps) {
     if (this.props.value !== nextProps.value) {
       if (this.nextFrameActionId) {
@@ -57,7 +60,8 @@ export default class Textarea extends Component {
       this.nextFrameActionId = onNextFrame(this.resizeTextarea);
     }
   }
-  handleKeyDown = e => {
+
+  handleKeyDown = (e) => {
     const { onPressEnter, onKeyDown } = this.props;
     if (e.keyCode === 13 && onPressEnter) {
       onPressEnter(e);
@@ -66,7 +70,8 @@ export default class Textarea extends Component {
       onKeyDown(e);
     }
   }
-  handleTextareaChange = e => {
+
+  handleTextareaChange = (e) => {
     if (!('value' in this.props)) {
       this.resizeTextarea();
     }
@@ -75,14 +80,15 @@ export default class Textarea extends Component {
       onChange(e);
     }
   }
+
   resizeTextarea = () => {
     const { autoSize } = this.props;
     if (!autoSize || !this.textAreaRef) {
       return;
     }
     // let rows = this.state.rows;
-    let minRows = autoSize && typeof autoSize === 'object' ? autoSize.minRows : null;
-    let maxRows = autoSize && typeof autoSize === 'object' ? autoSize.maxRows : null;
+    const minRows = autoSize && typeof autoSize === 'object' ? autoSize.minRows : null;
+    const maxRows = autoSize && typeof autoSize === 'object' ? autoSize.maxRows : null;
     // let scrollHeight = this.textAreaRef.scrollHeight;
     // let clientHeight = this.textAreaRef.clientHeight;
     // if (autoSize === true) {
@@ -95,7 +101,7 @@ export default class Textarea extends Component {
     //   this.loop(rows, scrollHeight, clientHeight, false, maxRows);
     // }
     const textareaStyle = calculateNodeHeight(this.textAreaRef, minRows, maxRows);
-    this.setState({textareaStyle});
+    this.setState({ textareaStyle });
   }
   // loop = (rows, scrollHeight, clientHeight, autoSize, maxRows) => {
   //   if (scrollHeight > clientHeight && (rows < maxRows || autoSize)) {
@@ -107,32 +113,35 @@ export default class Textarea extends Component {
   //   }
   // }
 
-  saveRef = node => this.textAreaRef = node;
+  saveRef = (node) => {
+    this.textAreaRef = node;
+  }
+
   render() {
-    const props = this.props;
+    const { props } = this;
     const { textareaStyle } = this.state;
     const { prefixCls, className, disabled } = props;
     const otherProps = omit(props, [
       'prefixCls',
       'onPressEnter',
-      'autoSize'
+      'autoSize',
     ]);
-    const style = {
-      ...props.style,
-      ...textareaStyle
-    };
+    const style = { ...props.style, ...textareaStyle };
     const classNames = cn(prefixCls, className, {
-      [`${prefixCls}-disabled`]: disabled
+      [`${prefixCls}-disabled`]: disabled,
     });
     if ('value' in otherProps) {
       otherProps.value = otherProps.value || '';
     }
     return (
-      <textarea {...otherProps} onKeyDown={this.handleKeyDown}
+      <textarea
+        {...otherProps}
+        onKeyDown={this.handleKeyDown}
         onChange={this.handleTextareaChange}
-        style={style} className={classNames}
+        style={style}
+        className={classNames}
         ref={this.saveRef}
       />
-    )
+    );
   }
 }
