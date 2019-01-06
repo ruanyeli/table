@@ -36,7 +36,7 @@ export default class Search extends Component {
   }
 
   render() {
-    const { onSearch, ref, suffix, onPressEnter,  ...nestProps  } = this.props;
+    const { onSearch, ref, suffix, onPressEnter, ...nestProps } = this.props;
     const searchSuffix = (<Icon type="search" onClick={this.onSearch} />);
     return (
       <Input
