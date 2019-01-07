@@ -25,7 +25,10 @@ export default class Table extends Component {
     const prefixCls = s.tablePrefix;
     const tableHead = columns.map((col, index) => {
       return (
-        <th key={col.key} style={{ width: col.width ? col.width : 'auto', textAlign: col.align ? col.align : 'left' }}>
+        <th key={col.key}
+          style={{ width: col.width ? col.width : 'auto', textAlign: col.align ? col.align : 'left' }}
+          {...onHeaderRow(col)}
+        >
           {col.onHeaderCell ? col.onHeaderCell(col.dataIndex, 0, index) : col.dataIndex}
         </th>
       );
@@ -52,7 +55,7 @@ export default class Table extends Component {
     return (
       <div>
         <table className={tableCls}>
-          <thead className={`${prefixCls}-thead`} onHeaderRow>
+          <thead className={`${prefixCls}-thead`} >
             <tr>
               {tableHead}
             </tr>
