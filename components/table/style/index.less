@@ -1,0 +1,45 @@
+@import "../../style/index.less";
+
+.@{table-prefix} {
+    border-bottom: 1px solid #ebedf0;
+    padding: 42px 24px 50px;
+    color: rgba(0,0,0,0.65);
+}
+
+.@{table-prefix}-thead{
+    box-sizing: border-box;
+    border-collapse: collapse;
+    text-align: left;
+    background: #fafafa;
+}
+
+.@{table-prefix}-thead >tr{
+    border-top-left-radius: 4px;
+}
+
+.@{table-prefix}-thead >tr > th{
+    transition: background 0.3s ease;
+    text-align: left;
+    font-weight: 500;
+    &[colspan] {
+      text-align: center;
+    }
+    padding: 16px 16px;
+    border-bottom: 1px solid #e8e8e8;
+}
+
+.@{table-prefix}-tbody{
+    border-collapse: collapse;
+    text-align: left;
+    font-family: "Chinese Quote",-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei","Helvetica Neue",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+    font-size: 14px;
+    font-variant: tabular-nums;
+    line-height: 1.5;
+    color: rgba(0,0,0,0.65);
+}
+
+
+.@{table-prefix}-tbody >tr > td{
+    padding: 14px 16px;
+    border-bottom: 1px solid #e8e8e8;
+}
