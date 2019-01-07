@@ -8,17 +8,20 @@ export default class Table extends Component {
     columns: [],
     dataSource: [],
     rowKey: '',
+    onHeaderRow: {},
   }
 
   static propTypes = {
     columns: PropTypes.arrayOf(PropTypes.object),
     dataSource: PropTypes.arrayOf(PropTypes.object),
     rowKey: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
+    // onRow: PropTypes.func,
+    onHeaderRow: PropTypes.func,
   };
 
 
   render() {
-    const { columns, dataSource, rowKey } = this.props;
+    const { columns, dataSource, rowKey, onRow, onHeaderRow } = this.props;
     const prefixCls = s.tablePrefix;
     const tableHead = columns.map((col, index) => {
       return (
@@ -44,10 +47,12 @@ export default class Table extends Component {
     });
 
     const tableCls = cn(prefixCls);
+    // const tableOnHeaderRow = onHeaderRow ? onHeaderRow(tableHead) : {}; {...tableOnHeaderRow}
+    console.log(onHeaderRow);
     return (
       <div>
         <table className={tableCls}>
-          <thead className={`${prefixCls}-thead`}>
+          <thead className={`${prefixCls}-thead`} onHeaderRow>
             <tr>
               {tableHead}
             </tr>

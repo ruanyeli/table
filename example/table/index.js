@@ -36,6 +36,7 @@ export default class TableExample extends Component {
       key: 'name',
       width: '30%',
       align: 'center',
+      // 头部单元格点击事件
       onHeaderCell: (text, row, index) => {
         return (
           <div>
@@ -73,6 +74,21 @@ export default class TableExample extends Component {
     return (
       <div>
         <Table columns={columns} dataSource={data} rowKey="id" />
+        <Table onRow={(record) => {
+          return {
+            onClick: () => { console.log(record); },
+            onMouseEnter: () => { console.log(record); },
+          };
+        }}
+          onHeaderRow={(column) => {
+            return {
+              onClick: () => { console.log(column); },        // 点击表头行
+            };
+          }}
+          columns={columns}
+          dataSource={data}
+          rowKey="id"
+        />
       </div>
     );
   }
