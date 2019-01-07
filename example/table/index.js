@@ -82,7 +82,7 @@ export default class TableExample extends Component {
         }}
           onHeaderRow={(column) => {
             return {
-              onClick: () => { console.log(column); },        // 点击表头行
+              onClick: () => { console.log(column); }, // 点击表头行
             };
           }}
           columns={columns}

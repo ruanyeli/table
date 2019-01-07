@@ -2,13 +2,15 @@ import React, { Component } from 'react';
 import cn from 'classnames';
 import PropTypes from 'prop-types';
 import s from './style';
+import is from '../util/is';
 
+function noop() {}
 export default class Table extends Component {
   static defaultProps = {
     columns: [],
     dataSource: [],
     rowKey: '',
-    onHeaderRow: {},
+    onHeaderRow: noop,
   }
 
   static propTypes = {
@@ -23,11 +25,13 @@ export default class Table extends Component {
   render() {
     const { columns, dataSource, rowKey, onRow, onHeaderRow } = this.props;
     const prefixCls = s.tablePrefix;
+    const headerRowHandle = is.Function(onHeaderRow) ? onHeaderRow(columns) : {};
+    // console.log('onHeaderRow', headerRowHandle);
+
     const tableHead = columns.map((col, index) => {
       return (
         <th key={col.key}
           style={{ width: col.width ? col.width : 'auto', textAlign: col.align ? col.align : 'left' }}
-          {...onHeaderRow(col)}
         >
           {col.onHeaderCell ? col.onHeaderCell(col.dataIndex, 0, index) : col.dataIndex}
         </th>
@@ -51,12 +55,13 @@ export default class Table extends Component {
 
     const tableCls = cn(prefixCls);
     // const tableOnHeaderRow = onHeaderRow ? onHeaderRow(tableHead) : {}; {...tableOnHeaderRow}
-    console.log(onHeaderRow);
+    // console.log(onHeaderRow);
+
     return (
       <div>
         <table className={tableCls}>
-          <thead className={`${prefixCls}-thead`} >
-            <tr>
+          <thead className={`${prefixCls}-thead`}>
+            <tr {...headerRowHandle}>
               {tableHead}
             </tr>
           </thead>
