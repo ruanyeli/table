@@ -27,8 +27,18 @@ const data = [{
   address: 'London No. 2 Lake Park',
 }];
 
-export default class TableExample extends Component {
 
+const data1 = [];
+for (let i = 0; i < 46; i++) {
+  data1.push({
+    key: i,
+    name: `Edward King ${i}`,
+    age: 32,
+    address: `London, Park Lane no. ${i}`,
+  });
+}
+
+export default class TableExample extends Component {
   render() {
     const columns = [{
       title: 'Name',
@@ -71,9 +81,22 @@ export default class TableExample extends Component {
         );
       },
     }];
+
+    const columns1 = [{
+      title: 'Name',
+      dataIndex: 'name',
+    }, {
+      title: 'Age',
+      dataIndex: 'age',
+    }, {
+      title: 'Address',
+      dataIndex: 'address',
+    }];
+
     return (
       <div>
-        <Table columns={columns} dataSource={data} rowKey="id" />
+        {/* 设置分页 */}
+        <Table columns={columns1} dataSource={data1} rowKey="id" pagination />
         <Table onRow={(record) => {
           return {
             onClick: () => { console.log(record); },

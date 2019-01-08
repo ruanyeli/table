@@ -2,13 +2,18 @@ import React, { Component } from 'react';
 import cn from 'classnames';
 import PropTypes from 'prop-types';
 import s from './style';
+import is from '../util/is';
+import Pagination from '../pagination';
+
+function noop() { }
 
 export default class Table extends Component {
   static defaultProps = {
     columns: [],
     dataSource: [],
     rowKey: '',
-    onHeaderRow: {},
+    onHeaderRow: noop,
+    pagination: false,
   }
 
   static propTypes = {
@@ -16,18 +21,20 @@ export default class Table extends Component {
     dataSource: PropTypes.arrayOf(PropTypes.object),
     rowKey: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
     // onRow: PropTypes.func,
-    onHeaderRow: PropTypes.func,
+    onHeaderRow: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
+    pagination: PropTypes.bool,
   };
 
 
   render() {
-    const { columns, dataSource, rowKey, onRow, onHeaderRow } = this.props;
+    const { columns, dataSource, rowKey, onRow, onHeaderRow, pagination} = this.props;
     const prefixCls = s.tablePrefix;
+    const headerRowhandle = is.Function(onHeaderRow) ? onHeaderRow(columns) : {};
+
     const tableHead = columns.map((col, index) => {
       return (
         <th key={col.key}
           style={{ width: col.width ? col.width : 'auto', textAlign: col.align ? col.align : 'left' }}
-          {...onHeaderRow(col)}
         >
           {col.onHeaderCell ? col.onHeaderCell(col.dataIndex, 0, index) : col.dataIndex}
         </th>
@@ -50,20 +57,22 @@ export default class Table extends Component {
     });
 
     const tableCls = cn(prefixCls);
-    // const tableOnHeaderRow = onHeaderRow ? onHeaderRow(tableHead) : {}; {...tableOnHeaderRow}
-    console.log(onHeaderRow);
+
     return (
       <div>
         <table className={tableCls}>
-          <thead className={`${prefixCls}-thead`} >
-            <tr>
+          <thead className={`${prefixCls}-thead`}>
+            <tr {...headerRowhandle}>
               {tableHead}
             </tr>
           </thead>
+
           <tbody className={`${prefixCls}-tbody`}>
             {tableBody}
           </tbody>
         </table>
+        {/* total等于行数 */}
+        <Pagination defaultCurrent={1} total={dataSource.length} />
       </div>
     );
   }
