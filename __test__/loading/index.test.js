@@ -1,7 +1,8 @@
 import React from 'react';
-import { shallow, render, mount } from 'enzyme';
+import { mount } from 'enzyme';
 import Loading from '../../components/loading';
 
+// shallow, render,
 const prefixLoad = 'y-loading';
 
 describe('<Loading loading />', () => {
@@ -51,16 +52,14 @@ describe('<Loading />text props', () => {
 
 describe('<Loading />childern props', () => {
   it('render loading with childern ', () => {
-    const wrapper = render(
+    const wrapper = mount(
       <Loading text="加载中" loading prefixLoad={prefixLoad}>
-        <div style={{ padding: 50, textAlign: 'center', border: '1px solid #000' }}>
+        <div>
           loading Content
         </div>
       </Loading>,
     );
-    // expect(wrapper.find(`${prefixLoad}-content`).children()).to.have.lengthOf(items.length);
-    // console.log('aaa', wrapper.find(`${prefixLoad}-content`));
-
-    expect(wrapper.find(`${prefixLoad}-content`).matchesElement(<div>loading Content</div>)).to.equal(true);
+    // expect(wrapper.find(`${prefixLoad}-content`).matchesElement(<div>loading Content</div>)).to.equal(true);
+    expect(wrapper.html()).toContain('<div>loading Content</div>');
   });
 });

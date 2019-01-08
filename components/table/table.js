@@ -29,7 +29,8 @@ export default class Table extends Component {
   render() {
     const { columns, dataSource, rowKey, onRow, onHeaderRow, pagination} = this.props;
     const prefixCls = s.tablePrefix;
-    const headerRowhandle = is.Function(onHeaderRow) ? onHeaderRow(columns) : {};
+    const headerRowHandle = is.Function(onHeaderRow) ? onHeaderRow(columns) : {};
+    // console.log('onHeaderRow', headerRowHandle);
 
     const tableHead = columns.map((col, index) => {
       return (
@@ -57,12 +58,14 @@ export default class Table extends Component {
     });
 
     const tableCls = cn(prefixCls);
+    // const tableOnHeaderRow = onHeaderRow ? onHeaderRow(tableHead) : {}; {...tableOnHeaderRow}
+    // console.log(onHeaderRow);
 
     return (
       <div>
         <table className={tableCls}>
           <thead className={`${prefixCls}-thead`}>
-            <tr {...headerRowhandle}>
+            <tr {...headerRowHandle}>
               {tableHead}
             </tr>
           </thead>
