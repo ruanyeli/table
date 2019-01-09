@@ -171,7 +171,7 @@ class Pagination extends Component {
   render() {
     const prefixCls = s.paginationPrefix;
     const pageList = [];
-    console.log({ s });
+    // console.log({ s });
     const { style, className, total, showSizeChanger, showNum, size, showTotal, showQuickJumper, simple, pageSizeOptions } = this.props;
     const { current, pageSize } = this.state;
     const allPages = this._calcAllPages();

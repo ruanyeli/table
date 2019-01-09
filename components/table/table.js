@@ -8,12 +8,16 @@ import Pagination from '../pagination';
 function noop() { }
 
 export default class Table extends Component {
+
+
   static defaultProps = {
     columns: [],
     dataSource: [],
     rowKey: '',
     onHeaderRow: noop,
     pagination: false,
+    pageSize: 10, //每页默认展示10条数据
+    defaultCurrent: 1, //当前页数默认为第一页
   }
 
   static propTypes = {
@@ -23,11 +27,28 @@ export default class Table extends Component {
     // onRow: PropTypes.func,
     onHeaderRow: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
     pagination: PropTypes.bool,
+    pageSize: PropTypes.number,
+    defaultCurrent: PropTypes.number,
   };
 
+  constructor(props) {
+    super(props);
+    this.state = {
+      current: 1,
+      pageSize: 10,
+    };
+  }
+
+
+  onChange = (page) => {
+    console.log(page);
+    this.setState({
+      current: page,
+    });
+  }
 
   render() {
-    const { columns, dataSource, rowKey, onRow, onHeaderRow, pagination} = this.props;
+    const { columns, dataSource, rowKey, onRow, onHeaderRow, pagination } = this.props;
     const prefixCls = s.tablePrefix;
     const headerRowHandle = is.Function(onHeaderRow) ? onHeaderRow(columns) : {};
     // console.log('onHeaderRow', headerRowHandle);
@@ -42,7 +63,9 @@ export default class Table extends Component {
       );
     });
 
-    const tableBody = dataSource.map((row, index) => {
+    const dataShow = pagination ? (dataSource.slice((this.state.current - 1) * 10,
+      this.state.current * 10)) : dataSource;
+    const tableBody = dataShow.map((row, index) => {
       const tableRow = columns.map((col) => {
         return (
           <td key={col.key} style={{ textAlign: col.align ? col.align : 'left' }}>
@@ -51,18 +74,28 @@ export default class Table extends Component {
           </td>
         );
       });
-
       return (
         <tr key={row[rowKey]}>{tableRow}</tr>
       );
     });
 
+
     const tableCls = cn(prefixCls);
-    // const tableOnHeaderRow = onHeaderRow ? onHeaderRow(tableHead) : {}; {...tableOnHeaderRow}
-    // console.log(onHeaderRow);
+    const showPagination = pagination
+      ? (
+        <Pagination className={`${prefixCls}-pagination`}
+          total={dataSource.length}
+          // showTotal={total => `Total ${total} items`}
+          pageSize={this.state.pageSize}
+          defaultCurrent={1}
+          current={this.state.current}
+          onChange={this.onChange}
+        />
+      ) : '';
+
 
     return (
-      <div>
+      <div className={`${prefixCls}-wrapper`}>
         <table className={tableCls}>
           <thead className={`${prefixCls}-thead`}>
             <tr {...headerRowHandle}>
@@ -74,8 +107,8 @@ export default class Table extends Component {
             {tableBody}
           </tbody>
         </table>
-        {/* total等于行数 */}
-        <Pagination defaultCurrent={1} total={dataSource.length} />
+        {/* total等于行数 pageSize每一页展示多少条目 */}
+        {showPagination}
       </div>
     );
   }

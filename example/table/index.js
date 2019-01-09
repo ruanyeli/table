@@ -111,7 +111,9 @@ export default class TableExample extends Component {
           columns={columns}
           dataSource={data}
           rowKey="id"
+          pagination
         />
+        <Table columns={columns} dataSource={data} rowKey="id" pagination={false} />
       </div>
     );
   }
