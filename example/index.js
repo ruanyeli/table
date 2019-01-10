@@ -4,12 +4,14 @@
 import React from 'react';
 // import LoadingExample from './loading';
 import TableExample from './table';
+import TableSizeExample from './table/size';
 
 export default class index extends React.Component {
   render() {
     return (
       <div>
-        <TableExample />
+        {/* <TableExample /> */}
+        <TableSizeExample />
       </div>
     );
   }

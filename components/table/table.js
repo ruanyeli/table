@@ -15,6 +15,7 @@ export default class Table extends Component {
     rowKey: '',
     onHeaderRow: noop,
     pagination: false,
+    size: 'default',
   }
 
   static propTypes = {
@@ -23,6 +24,7 @@ export default class Table extends Component {
     rowKey: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
     onHeaderRow: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
     pagination: PropTypes.bool,
+    size: PropTypes.string,
   };
 
   constructor(props) {
@@ -58,8 +60,10 @@ export default class Table extends Component {
   }
 
   render() {
-    const { columns, dataSource, rowKey, onRow, onHeaderRow, pagination } = this.props;
+    const { columns, dataSource, rowKey, onRow, onHeaderRow, pagination,
+      size } = this.props;
     const prefixCls = s.tablePrefix;
+    // const prefixClsSize = { prefixCls } - 'pagination';
     const headerRowHandle = is.Function(onHeaderRow) ? onHeaderRow(columns) : {};
     const { current } = this.state;
     const { pageSize } = this.state;
@@ -107,18 +111,19 @@ export default class Table extends Component {
           showTotal={pagination.showTotal}
           size={pagination.size}
           onShowSizeChange={pagination.onShowSizeChange}
+          hideOnSinglePage={pagination.hideOnSinglePage}
         />
       ) : '';
 
     return (
       <div className={`${prefixCls}-wrapper`}>
-        <table className={tableCls}>
-          <thead className={`${prefixCls}-thead`}>
+        <table className={`${tableCls}-${size}`}>
+          <thead className={`${prefixCls}-thead-${size}`}>
             <tr {...headerRowHandle}>
               {tableHead}
             </tr>
           </thead>
-          <tbody className={`${prefixCls}-tbody`}>
+          <tbody className={`${prefixCls}-tbody-${size}`}>
             {tableBody}
           </tbody>
         </table>

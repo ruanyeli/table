@@ -100,10 +100,20 @@ export default class TableExample extends Component {
       showQuickJumper: true,
     };
 
+    const rowSelection = {
+      onChange: (selectedRowKeys, selectedRows) => {
+        console.log(`selectedRowKeys: ${selectedRowKeys}`, 'selectedRows: ', selectedRows);
+      },
+      getCheckboxProps: record => ({
+        disabled: record.name === 'Disabled User', // Column configuration not to be checked
+        name: record.name,
+      }),
+    };
+
+
     return (
       <div>
         {/* 设置分页 */}
-        <Table columns={columns1} dataSource={data1} rowKey="id" pagination={paginationSettings} />
         <Table onRow={(record) => {
           return {
             onClick: () => { console.log(record); },
@@ -118,12 +128,10 @@ export default class TableExample extends Component {
           columns={columns}
           dataSource={data}
           rowKey="id"
-          pagination
+          pagination={paginationSettings}
         />
-        <Table columns={columns}
-          dataSource={data}
-          rowKey="id"
-        />
+
+        <Table rowSelection={rowSelection} columns={columns} dataSource={data} rowKey="id" />
       </div>
     );
   }

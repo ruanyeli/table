@@ -1,9 +1,22 @@
 @import "../../style/index.less";
 
-.@{table-prefix} {
+.@{table-prefix}-default {
     padding: 0px 24px 50px;
     color: rgba(0,0,0,0.65);
     width: 100%;
+}
+
+.@{table-prefix}-middle {
+    padding: 0px 24px 50px;
+    color: rgba(0,0,0,0.65);
+    width: 100%;
+}
+
+.@{table-prefix}-small {
+    padding: 0px 24px 50px;
+    color: rgba(0,0,0,0.65);
+    width: 100%;
+    border: 1px solid #e8e8e8;
 }
 
 .@{table-prefix}-wrapper {
@@ -13,7 +26,14 @@
     width: 800px;
 }
 
-.@{table-prefix}-thead{
+.@{table-prefix}-thead-default{
+    box-sizing: border-box;
+    border-collapse: collapse;
+    text-align: left;
+    background: #b7ddfa;
+}
+
+.@{table-prefix}-thead-middle{
     box-sizing: border-box;
     border-collapse: collapse;
     text-align: left;
@@ -28,7 +48,19 @@
     border-top-left-radius: 4px;
 }
 
-.@{table-prefix}-thead >tr > th{
+.@{table-prefix}-thead-small >tr > th{
+    transition: background 0.3s ease;
+    text-align: left;
+    font-weight:bold;
+    font-size: 14px;
+    &[colspan] {
+      text-align: center;
+    }
+    padding: 8px 8px;
+    border-bottom: 1px solid #e8e8e8;
+}
+
+.@{table-prefix}-thead-default >tr > th{
     transition: background 0.3s ease;
     text-align: left;
     font-weight: 500;
@@ -36,6 +68,17 @@
       text-align: center;
     }
     padding: 16px 16px;
+    border-bottom: 1px solid #e8e8e8;
+}
+
+.@{table-prefix}-thead-middle >tr > th{
+    transition: background 0.3s ease;
+    text-align: left;
+    font-weight: 500;
+    &[colspan] {
+      text-align: center;
+    }
+    padding: 12px 8px;
     border-bottom: 1px solid #e8e8e8;
 }
 
@@ -50,7 +93,20 @@
 }
 
 
-.@{table-prefix}-tbody >tr > td{
+.@{table-prefix}-tbody-default >tr > td{
     padding: 14px 16px;
     border-bottom: 1px solid #e8e8e8;
+    
+}
+
+.@{table-prefix}-tbody-middle >tr > td{
+    padding: 12px 8px;
+    border-bottom: 1px solid #e8e8e8;
+}
+
+.@{table-prefix}-tbody-small >tr > td{
+    padding: 8px 8px;
+    border-bottom: 1px solid #e8e8e8;
+    font-size: 14px;
+
 }
