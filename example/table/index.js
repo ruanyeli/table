@@ -93,10 +93,17 @@ export default class TableExample extends Component {
       dataIndex: 'address',
     }];
 
+    const paginationSettings = {
+      current: 1,
+      pageSize: 15, // 每页条数
+      hideOnSinglePage: true,
+      showQuickJumper: true,
+    };
+
     return (
       <div>
         {/* 设置分页 */}
-        <Table columns={columns1} dataSource={data1} rowKey="id" pagination />
+        <Table columns={columns1} dataSource={data1} rowKey="id" pagination={paginationSettings} />
         <Table onRow={(record) => {
           return {
             onClick: () => { console.log(record); },
@@ -113,7 +120,10 @@ export default class TableExample extends Component {
           rowKey="id"
           pagination
         />
-        <Table columns={columns} dataSource={data} rowKey="id" pagination={false} />
+        <Table columns={columns}
+          dataSource={data}
+          rowKey="id"
+        />
       </div>
     );
   }

@@ -9,36 +9,46 @@ function noop() { }
 
 export default class Table extends Component {
 
-
   static defaultProps = {
     columns: [],
     dataSource: [],
     rowKey: '',
     onHeaderRow: noop,
     pagination: false,
-    pageSize: 10, //每页默认展示10条数据
-    defaultCurrent: 1, //当前页数默认为第一页
   }
 
   static propTypes = {
     columns: PropTypes.arrayOf(PropTypes.object),
     dataSource: PropTypes.arrayOf(PropTypes.object),
     rowKey: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
-    // onRow: PropTypes.func,
     onHeaderRow: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
     pagination: PropTypes.bool,
-    pageSize: PropTypes.number,
-    defaultCurrent: PropTypes.number,
   };
 
   constructor(props) {
     super(props);
+    const { current, defaultCurrent, defaultPageSize, pageSize } = props.pagination;
+    let stateCurrent = 1;
+    let statePageSize = 10;
+    if (defaultCurrent) {
+      stateCurrent = defaultCurrent;
+    }
+    if (current) {
+      stateCurrent = current;
+    }
+
+    if (defaultPageSize) {
+      statePageSize = defaultPageSize;
+    }
+    if (pageSize) {
+      statePageSize = pageSize;
+    }
+
     this.state = {
-      current: 1,
-      pageSize: 10,
+      current: stateCurrent,
+      pageSize: statePageSize,
     };
   }
-
 
   onChange = (page) => {
     console.log(page);
@@ -51,7 +61,9 @@ export default class Table extends Component {
     const { columns, dataSource, rowKey, onRow, onHeaderRow, pagination } = this.props;
     const prefixCls = s.tablePrefix;
     const headerRowHandle = is.Function(onHeaderRow) ? onHeaderRow(columns) : {};
-    // console.log('onHeaderRow', headerRowHandle);
+    const { current } = this.state;
+    const { pageSize } = this.state;
+    const tableCls = cn(prefixCls);
 
     const tableHead = columns.map((col, index) => {
       return (
@@ -63,8 +75,8 @@ export default class Table extends Component {
       );
     });
 
-    const dataShow = pagination ? (dataSource.slice((this.state.current - 1) * 10,
-      this.state.current * 10)) : dataSource;
+    const dataShow = pagination ? (dataSource.slice((current - 1) * pageSize, current * pageSize))
+      : dataSource;
     const tableBody = dataShow.map((row, index) => {
       const tableRow = columns.map((col) => {
         return (
@@ -79,20 +91,24 @@ export default class Table extends Component {
       );
     });
 
-
-    const tableCls = cn(prefixCls);
     const showPagination = pagination
       ? (
         <Pagination className={`${prefixCls}-pagination`}
           total={dataSource.length}
           // showTotal={total => `Total ${total} items`}
-          pageSize={this.state.pageSize}
+          pageSize={pageSize}
           defaultCurrent={1}
-          current={this.state.current}
+          current={current}
           onChange={this.onChange}
+          pageSizeOptions={pagination.pageSizeOptions}
+          showSizeChanger={pagination.showSizeChanger}
+          showQuickJumper={pagination.showQuickJumper}
+          simple={pagination.simple}
+          showTotal={pagination.showTotal}
+          size={pagination.size}
+          onShowSizeChange={pagination.onShowSizeChange}
         />
       ) : '';
-
 
     return (
       <div className={`${prefixCls}-wrapper`}>
@@ -102,7 +118,6 @@ export default class Table extends Component {
               {tableHead}
             </tr>
           </thead>
-
           <tbody className={`${prefixCls}-tbody`}>
             {tableBody}
           </tbody>
