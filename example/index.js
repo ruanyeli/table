@@ -5,13 +5,15 @@ import React from 'react';
 // import LoadingExample from './loading';
 import TableExample from './table';
 import TableSizeExample from './table/size';
+import TableRowSelectionExample from './table/rowSelection';
 
 export default class index extends React.Component {
   render() {
     return (
       <div>
         {/* <TableExample /> */}
-        <TableSizeExample />
+        {/* <TableSizeExample /> */}
+        <TableRowSelectionExample />
       </div>
     );
   }

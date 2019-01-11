@@ -8,7 +8,6 @@ import Pagination from '../pagination';
 function noop() { }
 
 export default class Table extends Component {
-
   static defaultProps = {
     columns: [],
     dataSource: [],
@@ -53,7 +52,6 @@ export default class Table extends Component {
   }
 
   onChange = (page) => {
-    console.log(page);
     this.setState({
       current: page,
     });
@@ -61,15 +59,24 @@ export default class Table extends Component {
 
   render() {
     const { columns, dataSource, rowKey, onRow, onHeaderRow, pagination,
-      size } = this.props;
+      size, rowSelection } = this.props;
     const prefixCls = s.tablePrefix;
     // const prefixClsSize = { prefixCls } - 'pagination';
     const headerRowHandle = is.Function(onHeaderRow) ? onHeaderRow(columns) : {};
     const { current } = this.state;
     const { pageSize } = this.state;
     const tableCls = cn(prefixCls);
+    const showColumns = is.Object(rowSelection) ? [{
+      title: <input type="checkbox" />,
+      dataIndex: <input type="checkbox" />,
+    }].concat(columns) : columns;
 
-    const tableHead = columns.map((col, index) => {
+    const checkboxShow = is.Object(rowSelection) ? <td><input type="checkbox" /></td> : null;
+
+    const dataShow = pagination ? (dataSource.slice((current - 1) * pageSize, current * pageSize))
+      : dataSource;
+
+    const tableHead = showColumns.map((col, index) => {
       return (
         <th key={col.key}
           style={{ width: col.width ? col.width : 'auto', textAlign: col.align ? col.align : 'left' }}
@@ -79,8 +86,6 @@ export default class Table extends Component {
       );
     });
 
-    const dataShow = pagination ? (dataSource.slice((current - 1) * pageSize, current * pageSize))
-      : dataSource;
     const tableBody = dataShow.map((row, index) => {
       const tableRow = columns.map((col) => {
         return (
@@ -91,7 +96,10 @@ export default class Table extends Component {
         );
       });
       return (
-        <tr key={row[rowKey]}>{tableRow}</tr>
+        <tr key={row[rowKey]}>
+          {checkboxShow}
+          {tableRow}
+        </tr>
       );
     });
 
