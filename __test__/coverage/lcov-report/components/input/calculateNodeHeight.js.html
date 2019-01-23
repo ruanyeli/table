@@ -1,0 +1,365 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for components/input/calculateNodeHeight.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../index.html">All files</a> / <a href="index.html">components/input</a> calculateNodeHeight.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>0/40</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/30</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>0/3</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>0/40</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101</td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">const HIDDEN_TEXTAREA_STYLE<span class="cstat-no" title="statement not covered" > = `</span>
+  min-height:0 !important;
+  max-height:none !important;
+  height:0 !important;
+  visibility:hidden !important;
+  overflow:hidden !important;
+  position:absolute !important;
+  z-index:-1000 !important;
+  top:0 !important;
+  right:0 !important;
+`;
+const SIZING_STYLE = <span class="cstat-no" title="statement not covered" >[</span>
+  'letter-spacing',
+  'line-height',
+  'padding-top',
+  'padding-bottom',
+  'font-family',
+  'font-weight',
+  'font-size',
+  'text-rendering',
+  'text-transform',
+  'width',
+  'text-indent',
+  'padding-left',
+  'padding-right',
+  'border-width',
+  'box-sizing',
+  'word-break',
+];
+let hiddenTextarea;
+&nbsp;
+function <span class="fstat-no" title="function not covered" >calculateNodeStyling(node) {</span>
+  const style = <span class="cstat-no" title="statement not covered" >window.getComputedStyle(node);</span>
+  const boxSizing = (
+<span class="cstat-no" title="statement not covered" >    style.getPropertyValue('box-sizing') || style.getPropertyValue('-webkit-box-sizing') || style.getPropertyValue('-moz-box-sizing')</span>
+  );
+  const paddingSize = (
+<span class="cstat-no" title="statement not covered" >    parseFloat(style.getPropertyValue('padding-bottom')) + parseFloat(style.getPropertyValue('padding-top'))</span>
+  );
+  const borderSize = (
+<span class="cstat-no" title="statement not covered" >    parseFloat(style.getPropertyValue('border-bottom-width')) +</span>
+    parseFloat(style.getPropertyValue('border-top-width'))
+  );
+  const sizingStyle = <span class="cstat-no" title="statement not covered" >SIZING_STYLE</span>
+    .map(<span class="fstat-no" title="function not covered" >name<span class="cstat-no" title="statement not covered" > =&gt; `${name}:${style.getPropertyValue(name)}`)</span></span>
+    .join(';');
+&nbsp;
+  const nodeInfo = <span class="cstat-no" title="statement not covered" >{</span>
+    sizingStyle,
+    paddingSize,
+    borderSize,
+    boxSizing,
+  };
+<span class="cstat-no" title="statement not covered" >  return nodeInfo;</span>
+}
+&nbsp;
+export default function <span class="fstat-no" title="function not covered" >calculateNodeHeight(node, minRows, maxRows) <span class="cstat-no" title="statement not covered" >{</span></span>
+<span class="cstat-no" title="statement not covered" >  if (!hiddenTextarea) {</span>
+<span class="cstat-no" title="statement not covered" >    hiddenTextarea = document.createElement('textarea');</span>
+<span class="cstat-no" title="statement not covered" >    document.body.appendChild(hiddenTextarea);</span>
+  }
+&nbsp;
+  let { paddingSize, sizingStyle, borderSize, boxSizing } = <span class="cstat-no" title="statement not covered" >calculateNodeStyling(node);</span>
+  let minHeight;
+  let maxHeight;
+  let overflowY = <span class="cstat-no" title="statement not covered" >'';</span>
+<span class="cstat-no" title="statement not covered" >  hiddenTextarea.value = node.value || node.placeholder || '';</span>
+<span class="cstat-no" title="statement not covered" >  hiddenTextarea.setAttribute('style', `${sizingStyle};${HIDDEN_TEXTAREA_STYLE}`);</span>
+&nbsp;
+  let height = <span class="cstat-no" title="statement not covered" >hiddenTextarea.scrollHeight;</span>
+<span class="cstat-no" title="statement not covered" >  if (boxSizing === 'border-box') {</span>
+<span class="cstat-no" title="statement not covered" >    height += borderSize;</span>
+  } else <span class="cstat-no" title="statement not covered" >if (boxSizing === 'content-box') {</span>
+<span class="cstat-no" title="statement not covered" >    height -= paddingSize;</span>
+  }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >  if (minRows !== null || maxRows !== null) {</span>
+<span class="cstat-no" title="statement not covered" >    hiddenTextarea.value = '';</span>
+    let singleRowHeight = <span class="cstat-no" title="statement not covered" >hiddenTextarea.scrollHeight;</span>
+<span class="cstat-no" title="statement not covered" >    if (minRows !== null) {</span>
+<span class="cstat-no" title="statement not covered" >      minHeight = singleRowHeight * minRows;</span>
+<span class="cstat-no" title="statement not covered" >      if (boxSizing === 'border-box') {</span>
+<span class="cstat-no" title="statement not covered" >        minHeight += (borderSize + paddingSize);</span>
+      }
+<span class="cstat-no" title="statement not covered" >      height = Math.max(minHeight, height);</span>
+    }
+<span class="cstat-no" title="statement not covered" >    if (maxRows !== null) {</span>
+<span class="cstat-no" title="statement not covered" >      maxHeight = singleRowHeight * maxRows;</span>
+<span class="cstat-no" title="statement not covered" >      if (boxSizing === 'border-box') {</span>
+<span class="cstat-no" title="statement not covered" >        maxHeight += (borderSize + paddingSize);</span>
+      }
+<span class="cstat-no" title="statement not covered" >      overflowY = maxHeight &gt; height ? 'hidden' : '';</span>
+<span class="cstat-no" title="statement not covered" >      height = Math.min(height, maxHeight);</span>
+    }
+  }
+<span class="cstat-no" title="statement not covered" >  if (!minRows &amp;&amp; !maxRows) {</span>
+<span class="cstat-no" title="statement not covered" >    overflowY = 'hidden';</span>
+  }
+<span class="cstat-no" title="statement not covered" >  return { height, minHeight, maxHeight, overflowY };</span>
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue Jan 22 2019 16:22:16 GMT+0800 (CST)
+</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>

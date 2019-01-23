@@ -1,0 +1,671 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for components/date-picker/picker.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../index.html">All files</a> / <a href="index.html">components/date-picker</a> picker.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>0/60</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/44</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>0/15</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>0/60</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/**
+ * @Author: Zhengfeng.Yao &lt;yzf&gt;
+ * @Date:   2017-06-21 14:46:57
+ * @Last modified by:   yzf
+ * @Last modified time: 2017-06-21 14:46:58
+ */
+&nbsp;
+<span class="cstat-no" title="statement not covered" >import React from 'react';</span>
+<span class="cstat-no" title="statement not covered" >import ReactDOM from 'react-dom';</span>
+<span class="cstat-no" title="statement not covered" >import PropTypes from 'prop-types';</span>
+<span class="cstat-no" title="statement not covered" >import createChainedFunction from '../util/createChainedFunction';</span>
+<span class="cstat-no" title="statement not covered" >import KeyCode from '../util/keyCode';</span>
+<span class="cstat-no" title="statement not covered" >import Trigger from 'rc-trigger';</span>
+<span class="cstat-no" title="statement not covered" >import placements from './placements';</span>
+<span class="cstat-no" title="statement not covered" >import s from './style';</span>
+&nbsp;
+function <span class="fstat-no" title="function not covered" >noop() {</span>
+}
+&nbsp;
+function <span class="fstat-no" title="function not covered" >refFn(field, component) {</span>
+<span class="cstat-no" title="statement not covered" >  this[field] = component;</span>
+}
+&nbsp;
+export default class Picker extends React.Component {
+  static propTypes = {
+    animation: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
+    disabled: PropTypes.bool,
+    transitionName: PropTypes.string,
+    onChange: PropTypes.func,
+    onOpenChange: PropTypes.func,
+    children: PropTypes.func,
+    getCalendarContainer: PropTypes.func,
+    calendar: PropTypes.element,
+    style: PropTypes.object,
+    open: PropTypes.bool,
+    defaultOpen: PropTypes.bool,
+    prefixCls: PropTypes.string,
+    placement: PropTypes.any,
+    value: PropTypes.oneOfType([
+      PropTypes.object,
+      PropTypes.array
+    ]),
+    defaultValue: PropTypes.oneOfType([
+      PropTypes.object,
+      PropTypes.array
+    ]),
+    align: PropTypes.object
+  };
+&nbsp;
+  static defaultProps = {
+    prefixCls: s.datePickerPrefix,
+    style: {},
+    align: {},
+    placement: 'bottomLeft',
+    defaultOpen: false,
+    onChange: noop,
+    onOpenChange: noop
+  };
+&nbsp;
+<span class="fstat-no" title="function not covered" >  constructor(</span>props) <span class="cstat-no" title="statement not covered" >{</span>
+<span class="cstat-no" title="statement not covered" >    super(props);</span>
+    let open;
+<span class="cstat-no" title="statement not covered" >    if ('open' in props) {</span>
+<span class="cstat-no" title="statement not covered" >      open = props.open;</span>
+    } else {
+<span class="cstat-no" title="statement not covered" >      open = props.defaultOpen;</span>
+    }
+    const value = <span class="cstat-no" title="statement not covered" >props.value || props.defaultValue;</span>
+<span class="cstat-no" title="statement not covered" >    this.saveCalendarRef = refFn.bind(this, 'calendarInstance');</span>
+<span class="cstat-no" title="statement not covered" >    this.state = {</span>
+      open,
+      value
+    };
+  }
+&nbsp;
+  componentWillReceiveProps(nextProps) {
+    const { value, open } = <span class="cstat-no" title="statement not covered" >nextProps;</span>
+<span class="cstat-no" title="statement not covered" >    if ('value' in nextProps) {</span>
+<span class="cstat-no" title="statement not covered" >      this.setState({</span>
+        value
+      });
+    }
+<span class="cstat-no" title="statement not covered" >    if (open !== undefined) {</span>
+<span class="cstat-no" title="statement not covered" >      this.setState({</span>
+        open
+      });
+    }
+  }
+&nbsp;
+  componentDidUpdate(_, prevState) {
+<span class="cstat-no" title="statement not covered" >    if (!prevState.open &amp;&amp; this.state.open) {</span>
+      // setTimeout is for making sure saveCalendarRef happen before focusCalendar
+<span class="cstat-no" title="statement not covered" >      this.focusTimeout = setTimeout(this.focusCalendar, 0, this);</span>
+    }
+  }
+&nbsp;
+  componentWillUnmount() {
+<span class="cstat-no" title="statement not covered" >    clearTimeout(this.focusTimeout);</span>
+  }
+&nbsp;
+  getCalendarElement = <span class="fstat-no" title="function not covered" >() =&gt; </span>{
+    const props = <span class="cstat-no" title="statement not covered" >this.props;</span>
+    const state = <span class="cstat-no" title="statement not covered" >this.state;</span>
+    const calendarProps = <span class="cstat-no" title="statement not covered" >props.calendar.props;</span>
+    const { value } = <span class="cstat-no" title="statement not covered" >state;</span>
+    const defaultValue = <span class="cstat-no" title="statement not covered" >value;</span>
+    const extraProps = <span class="cstat-no" title="statement not covered" >{</span>
+      ref: this.saveCalendarRef,
+      defaultValue: defaultValue || calendarProps.defaultValue,
+      selectedValue: value,
+      onKeyDown: this.onCalendarKeyDown,
+      onOk: createChainedFunction(calendarProps.onOk, this.onCalendarOk),
+      onSelect: createChainedFunction(calendarProps.onSelect, this.onCalendarSelect),
+      onClear: createChainedFunction(calendarProps.onClear, this.onCalendarClear)
+    };
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    return React.cloneElement(props.calendar, extraProps);</span>
+  };
+&nbsp;
+  setOpen = <span class="fstat-no" title="function not covered" >(</span>open, cb) =&gt; {
+    const { onOpenChange } = <span class="cstat-no" title="statement not covered" >this.props;</span>
+<span class="cstat-no" title="statement not covered" >    if (this.state.open !== open) {</span>
+<span class="cstat-no" title="statement not covered" >      if (!('open' in this.props)) {</span>
+<span class="cstat-no" title="statement not covered" >        this.setState({</span>
+          open
+        }, cb);
+      }
+<span class="cstat-no" title="statement not covered" >      onOpenChange(open);</span>
+    }
+  };
+&nbsp;
+  open = <span class="fstat-no" title="function not covered" >cb<span class="cstat-no" title="statement not covered" > =&gt; this.setOpen(true, cb);</span></span>
+&nbsp;
+  close = <span class="fstat-no" title="function not covered" >cb<span class="cstat-no" title="statement not covered" > =&gt; this.setOpen(false, cb);</span></span>
+&nbsp;
+  focus = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >() =&gt; !this.state.open &amp;&amp; ReactDOM.findDOMNode(this).focus();</span></span>
+&nbsp;
+  focusCalendar = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >() =&gt; this.state.open &amp;&amp; this.calendarInstance &amp;&amp; this.calendarInstance.focus &amp;&amp; this.calendarInstance.focus();</span></span>
+&nbsp;
+  onCalendarKeyDown = <span class="fstat-no" title="function not covered" >evt =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >    if (evt.keyCode === KeyCode.ESC) {</span>
+<span class="cstat-no" title="statement not covered" >      evt.stopPropagation();</span>
+<span class="cstat-no" title="statement not covered" >      this.close(this.focus);</span>
+    }
+  };
+&nbsp;
+  onKeyDown = <span class="fstat-no" title="function not covered" >evt =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >    if (evt.keyCode === KeyCode.DOWN &amp;&amp; !this.state.open) {</span>
+<span class="cstat-no" title="statement not covered" >      this.open();</span>
+<span class="cstat-no" title="statement not covered" >      evt.preventDefault();</span>
+    }
+  };
+&nbsp;
+  onCalendarSelect = <span class="fstat-no" title="function not covered" >(</span>value, cause = {}) =&gt; <span class="cstat-no" title="statement not covered" >{</span>
+    const props = <span class="cstat-no" title="statement not covered" >this.props;</span>
+<span class="cstat-no" title="statement not covered" >    if (!('value' in props)) {</span>
+<span class="cstat-no" title="statement not covered" >      this.setState({</span>
+        value
+      });
+    }
+<span class="cstat-no" title="statement not covered" >    if (</span>
+      cause.source === 'keyboard' ||
+      cause.source === 'todayButton') {
+<span class="cstat-no" title="statement not covered" >      this.close(this.focus);</span>
+    }
+<span class="cstat-no" title="statement not covered" >    props.onChange(value);</span>
+  };
+&nbsp;
+  onCalendarOk = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >() =&gt; this.close(this.focus);</span></span>
+&nbsp;
+  onCalendarClear = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >() =&gt; this.close(this.focus);</span></span>
+&nbsp;
+  onVisibleChange = <span class="fstat-no" title="function not covered" >open<span class="cstat-no" title="statement not covered" > =&gt; this.setOpen(open);</span></span>
+&nbsp;
+  render() <span class="cstat-no" title="statement not covered" >{</span>
+    const {
+      prefixCls, placement,
+      style, getCalendarContainer,
+      align, animation,
+      disabled,
+      transitionName, children
+    } = <span class="cstat-no" title="statement not covered" >this.props;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    return (&lt;Trigger</span>
+      popup={this.getCalendarElement()}
+      popupAlign={align}
+      builtinPlacements={placements}
+      popupPlacement={placement}
+      action={(disabled &amp;&amp; !this.state.open) ? [] : ['click']}
+      destroyPopupOnHide
+      getPopupContainer={getCalendarContainer}
+      popupStyle={style}
+      popupAnimation={animation}
+      popupTransitionName={transitionName}
+      popupVisible={this.state.open}
+      onPopupVisibleChange={this.onVisibleChange}
+      prefixCls={prefixCls}
+    &gt;
+      {React.cloneElement(children(this.state, this.props), { onKeyDown: this.onKeyDown })}
+    &lt;/Trigger&gt;);
+  }
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue Jan 22 2019 16:22:16 GMT+0800 (CST)
+</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>

@@ -13,3 +13,12 @@
 + 4. 利用[Jest](https://jestjs.io/docs/en/configuration#transform-object-string-string)编写测试用例，保证测试的覆盖率（L1）；
 
 + 5. 发布到npm仓库中（L0）; 
+
+### 打包发布
+
+在发布前执行下面命令来打包组件：
+
+> npm run build 
+
+
+<!-- webpack-bundle-analyzer 分析打包后代码体积 -->

@@ -59,7 +59,6 @@ describe('<Loading />childern props', () => {
         </div>
       </Loading>,
     );
-    // expect(wrapper.find(`${prefixLoad}-content`).matchesElement(<div>loading Content</div>)).to.equal(true);
     expect(wrapper.html()).toContain('<div>loading Content</div>');
   });
 });

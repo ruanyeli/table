@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for components/menu/util.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../index.html">All files</a> / <a href="index.html">components/menu</a> util.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>0/30</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/20</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>0/7</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>0/30</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">function <span class="fstat-no" title="function not covered" >isArray (obj) {</span>
+<span class="cstat-no" title="statement not covered" >  return Array.isArray(obj);</span>
+}
+&nbsp;
+function <span class="fstat-no" title="function not covered" >getKey (item, pKey, index) {</span>
+<span class="cstat-no" title="statement not covered" >  if (item.key) {</span>
+<span class="cstat-no" title="statement not covered" >    return item.key;</span>
+  } else {
+<span class="cstat-no" title="statement not covered" >    return `${pKey}-${index}`;</span>
+  }
+}
+&nbsp;
+function <span class="fstat-no" title="function not covered" >loopDom (back, dom, parentKey, index) {</span>
+<span class="cstat-no" title="statement not covered" >  if (dom.props &amp;&amp; dom.props.children &amp;&amp; isArray(dom.props.children) &amp;&amp; dom.props.children.length &gt; 0) {</span>
+    const pKey = <span class="cstat-no" title="statement not covered" >getKey(dom, parentKey, index);</span>
+<span class="cstat-no" title="statement not covered" >    back[pKey] = dom.props.children.map(<span class="fstat-no" title="function not covered" >(</span>item, i) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >      loopDom(back, item, pKey, i);</span>
+<span class="cstat-no" title="statement not covered" >      return getKey(item, pKey, i);</span>
+    });
+  }
+}
+&nbsp;
+function <span class="fstat-no" title="function not covered" >getDomKeys (domArr = []) <span class="cstat-no" title="statement not covered" >{</span></span>
+  let back = <span class="cstat-no" title="statement not covered" >{};</span>
+<span class="cstat-no" title="statement not covered" >  for (var i = 0; i &lt; domArr.length; i++) {</span>
+    let item = <span class="cstat-no" title="statement not covered" >domArr[i];</span>
+<span class="cstat-no" title="statement not covered" >    loopDom(back, item, 'root', i);</span>
+  }
+<span class="cstat-no" title="statement not covered" >  return back;</span>
+}
+&nbsp;
+function <span class="fstat-no" title="function not covered" >getChildren(domKeys, eventKey) {</span>
+  let back = <span class="cstat-no" title="statement not covered" >[];</span>
+  let find = <span class="cstat-no" title="statement not covered" >domKeys[eventKey];</span>
+<span class="cstat-no" title="statement not covered" >  if (find) {</span>
+<span class="cstat-no" title="statement not covered" >    back = back.concat(find);</span>
+<span class="cstat-no" title="statement not covered" >    for (var i = 0; i &lt; find.length; i++) {</span>
+<span class="cstat-no" title="statement not covered" >      back = back.concat(getChildren(domKeys, find[i]));</span>
+    }
+  }
+<span class="cstat-no" title="statement not covered" >  return back;</span>
+}
+function <span class="fstat-no" title="function not covered" >checkSelected (domKeys, selectedKeys, eventKey) {</span>
+  const child = <span class="cstat-no" title="statement not covered" >getChildren(domKeys, eventKey);</span>
+  let isSelecetd = <span class="cstat-no" title="statement not covered" >false;</span>
+<span class="cstat-no" title="statement not covered" >  if (selectedKeys &amp;&amp; selectedKeys.length &gt; 0) {</span>
+<span class="cstat-no" title="statement not covered" >    for (let i = 0; i &lt; child.length; i++) {</span>
+<span class="cstat-no" title="statement not covered" >      if (child[i].indexOf(selectedKeys) &gt;= 0) {</span>
+<span class="cstat-no" title="statement not covered" >        isSelecetd = true;</span>
+<span class="cstat-no" title="statement not covered" >        break;</span>
+      }
+    }
+  }
+<span class="cstat-no" title="statement not covered" >  return isSelecetd;</span>
+}
+&nbsp;
+export {
+  getDomKeys,
+  checkSelected
+};
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue Jan 22 2019 16:22:16 GMT+0800 (CST)
+</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>

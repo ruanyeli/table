@@ -1,0 +1,344 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for components/date-picker/common/monthTable.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../prettify.css" />
+    <link rel="stylesheet" href="../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../index.html">All files</a> / <a href="index.html">components/date-picker/common</a> monthTable.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>0/37</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/15</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>0/2</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>0/37</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/**
+ * @Author: Zhengfeng.Yao &lt;yzf&gt;
+ * @Date:   2017-06-22 11:44:19
+ * @Last modified by:   yzf
+ * @Last modified time: 2017-06-26 13:59:54
+ */
+&nbsp;
+<span class="cstat-no" title="statement not covered" >import React from 'react';</span>
+<span class="cstat-no" title="statement not covered" >import PropTypes from 'prop-types';</span>
+<span class="cstat-no" title="statement not covered" >import moment from 'moment';</span>
+<span class="cstat-no" title="statement not covered" >import chunk from 'lodash/chunk';</span>
+<span class="cstat-no" title="statement not covered" >import LocaleReceiver from '../../locale-provider/LocaleReceiver';</span>
+&nbsp;
+function <span class="fstat-no" title="function not covered" >isSameMonth(one, two) {</span>
+<span class="cstat-no" title="statement not covered" >  return one &amp;&amp; two &amp;&amp; one.isSame(two, 'month');</span>
+}
+&nbsp;
+export default class MonthTable extends React.Component {
+  static propTypes = {
+    prefixCls: PropTypes.string.isRequired,
+    value: PropTypes.object,
+    onSelect: PropTypes.func.isRequired
+  };
+&nbsp;
+  renderBody(momentLocale) <span class="cstat-no" title="statement not covered" >{</span>
+    // moment.locale(momentLocale);
+    const { value, onSelect, prefixCls, disabledDate } = <span class="cstat-no" title="statement not covered" >this.props;</span>
+    const months = <span class="cstat-no" title="statement not covered" >chunk(momentLocale === 'zh-CN' ? moment.months() : moment.monthsShort(), 4);</span>
+    const cellClass<span class="cstat-no" title="statement not covered" > = `${prefixCls}-cell`;</span>
+    const curMonthClass<span class="cstat-no" title="statement not covered" > = `${prefixCls}-cur`;</span>
+    const selectedClass<span class="cstat-no" title="statement not covered" > = `${prefixCls}-selected`;</span>
+    const disabledClass<span class="cstat-no" title="statement not covered" > = `${prefixCls}-disabled-cell`;</span>
+&nbsp;
+    const rows = <span class="cstat-no" title="statement not covered" >[];</span>
+<span class="cstat-no" title="statement not covered" >    for (let i = 0, passed = 0; i &lt; months.length; i++) {</span>
+      const monthCells = <span class="cstat-no" title="statement not covered" >[];</span>
+<span class="cstat-no" title="statement not covered" >      for (let j = 0; j &lt; months[i].length; j++) {</span>
+        const current = <span class="cstat-no" title="statement not covered" >value.clone().month(passed);</span>
+        let cls = <span class="cstat-no" title="statement not covered" >cellClass;</span>
+        let disabled = <span class="cstat-no" title="statement not covered" >false;</span>
+<span class="cstat-no" title="statement not covered" >        if (isSameMonth(current, value)) {</span>
+<span class="cstat-no" title="statement not covered" >          cls += ` ${selectedClass}`;</span>
+        }
+<span class="cstat-no" title="statement not covered" >        if (isSameMonth(current, moment())) {</span>
+<span class="cstat-no" title="statement not covered" >          cls += ` ${curMonthClass}`;</span>
+        }
+<span class="cstat-no" title="statement not covered" >        if (disabledDate &amp;&amp; disabledDate(current, value)) {</span>
+<span class="cstat-no" title="statement not covered" >          disabled = true;</span>
+<span class="cstat-no" title="statement not covered" >          cls += ` ${disabledClass}`;</span>
+        }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        monthCells.push(</span>
+          &lt;td
+            key={passed}
+            onClick={disabled ? undefined : onSelect.bind(null, current)}
+            title={current.format('YYYY/MM')}
+            className={cls}
+          &gt;
+            &lt;div&gt;
+              {months[i][j]}
+            &lt;/div&gt;
+          &lt;/td&gt;
+        );
+<span class="cstat-no" title="statement not covered" >        passed+</span>+;
+      }
+<span class="cstat-no" title="statement not covered" >      rows.push(</span>
+        &lt;tr key={`${i}-holder`} className={`${prefixCls}-placeholder`} /&gt;
+      );
+<span class="cstat-no" title="statement not covered" >      rows.push(</span>
+        &lt;tr key={i}&gt;
+          {monthCells}
+        &lt;/tr&gt;
+      );
+    }
+<span class="cstat-no" title="statement not covered" >    rows.push(</span>
+      &lt;tr key="last-holder" className={`${prefixCls}-placeholder`} /&gt;
+    );
+<span class="cstat-no" title="statement not covered" >    return (</span>
+      &lt;tbody className={`${prefixCls}-tbody`}&gt;{rows}&lt;/tbody&gt;
+    );
+  }
+&nbsp;
+  render() <span class="cstat-no" title="statement not covered" >{</span>
+    const { prefixCls } = <span class="cstat-no" title="statement not covered" >this.props;</span>
+<span class="cstat-no" title="statement not covered" >    return &lt;table className={prefixCls} cellSpacing="0" cellPadding="0"&gt;</span>
+      &lt;LocaleReceiver componentName="DatePicker"&gt;
+        {
+<span class="fstat-no" title="function not covered" >          local<span class="cstat-no" title="statement not covered" > =&gt; this.renderBody(local.momentLocale)</span></span>
+        }
+      &lt;/LocaleReceiver&gt;
+    &lt;/table&gt;
+  }
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue Jan 22 2019 16:22:16 GMT+0800 (CST)
+</div>
+</div>
+<script src="../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../sorter.js"></script>
+</body>
+</html>

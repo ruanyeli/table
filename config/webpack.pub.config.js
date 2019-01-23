@@ -91,6 +91,9 @@ module.exports = {
     ]
   }
 } */
+const webpack = require('webpack');
+const { IgnorePlugin } = webpack;
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 process.env.NODE_ENV = 'lib';
 const path = require('path');
@@ -173,5 +176,11 @@ const config = {
       { test: /\.(ttf|eot|svg|woff|woff2)$/, use: 'url-loader?limit=5000&name=images/[hash:8]-[name].[ext]' },
     ],
   },
+  plugins: [
+    // 忽略 moment 的locale 文件
+    new IgnorePlugin(/^\.\/locale$/, /moment$/),
+    // 打包后文件体积分析
+    new BundleAnalyzerPlugin(), 
+  ]
 }
 module.exports = config;
