@@ -8,7 +8,7 @@ export default class index extends React.Component {
         {/* <Loading loading size="large" text="加载中..." /> */}
         <br />
         <Loading text="加载中">
-          <div style={{ padding: 50, textAlign: 'center',border:"1px solid #000"}}>
+          <div style={{ padding: 50, textAlign: 'center', border: '1px solid #000' }}>
             loading Content
           </div>
         </Loading>
