@@ -69,6 +69,7 @@ export default class Table extends Component {
     const showColumns = is.Object(rowSelection) ? [{
       title: <input type="checkbox" />,
       dataIndex: <input type="checkbox" />,
+      key: 'rowSelection',
     }].concat(columns) : columns;
 
     const checkboxShow = is.Object(rowSelection) ? <td><input type="checkbox" /></td> : null;

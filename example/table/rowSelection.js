@@ -50,9 +50,10 @@ const rowSelection = {
 
 export default class TableRowSelectionExample extends Component {
   render() {
+    console.log('test reload');
     return (
       <div>
-        <Table rowSelection={rowSelection} columns={columns} dataSource={data} align="right" />
+        <Table rowSelection={rowSelection} columns={columns} dataSource={data} align="right" rowKey="id" />
       </div>
     );
   }
